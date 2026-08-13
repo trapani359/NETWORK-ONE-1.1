@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/network_one_online_v1_4.html"
+    }
+  ]
+}
