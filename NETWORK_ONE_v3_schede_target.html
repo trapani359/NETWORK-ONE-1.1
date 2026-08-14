@@ -1,0 +1,91 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Network One</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;background:#f5f7fb;color:#172033}header{background:#111827;color:#fff;padding:18px;display:flex;justify-content:space-between}.gps{background:#22c55e;padding:6px 10px;border-radius:18px;font-weight:700}main{max-width:760px;margin:auto;padding:18px 16px 90px}.card,.target{background:#fff;border:1px solid #e1e6ef;border-radius:18px;padding:16px;margin:14px 0}.target{padding:15px}.hidden{display:none}button,a{border:0;border-radius:13px;padding:13px;font-weight:800;text-decoration:none;display:inline-block}button{cursor:pointer}.primary{background:#111827;color:#fff;width:100%}.back{background:#e5e7eb;width:100%;margin-bottom:10px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.actions a,.actions .disabled{background:#eef2ff;color:#1d4ed8;text-align:center}.actions .disabled{opacity:.55;cursor:not-allowed}.badge{display:inline-block;background:#dcfce7;color:#166534;padding:5px 9px;border-radius:10px;font-size:12px;font-weight:800;margin-top:7px}.muted{color:#667085}.photo{height:120px;background:#eef2f7;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center}.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:8px;z-index:5}nav button{background:#fff;color:#667085}
+</style></head><body><header><b>📍 NETWORK ONE</b><span class="gps">🟢 GPS ATTIVO</span></header><main>
+<section id="home"><h1>Home</h1><div class="card"><h2>🔥 Giro consigliato</h2><p class="muted">Trova e ordina i migliori target.</p><button class="primary" onclick="route()">🚗 APRI GIRO CONSIGLIATO</button></div><div class="card">📍 GPS: <b>attivo</b><br>🎯 Target disponibili: <b>5</b></div></section>
+<section id="radar" class="hidden"><button class="back" onclick="show('home')">← Home</button><h1>🗺️ Radar</h1><div class="card"><h2>🔥 TOP TARGET</h2><div id="targets"></div></div></section>
+<section id="route" class="hidden"><button class="back" onclick="show('home')">← Home</button><h1>🚗 Giro consigliato</h1><div id="routeList"></div></section>
+<section id="profile" class="hidden"><button class="back" onclick="show('radar')">← Radar</button><div id="profile"></div></section>
+<section id="report" class="hidden"><h1>📊 Report</h1><div class="card">Target totali: <b>5</b><br><br>Target consigliati: <b>3</b><br><br>GPS: <b>ATTIVO</b></div></section>
+</main><nav><button onclick="show('home')">🏠<br>Home</button><button onclick="radar()">🗺️<br>Radar</button><button onclick="show('report')">📊<br>Report</button></nav>
+<script>
+const t=[
+  {name:"Tabaccheria Grimaudo",city:"Trapani",km:2.4,score:91,phone:"",whatsapp:"",email:"",website:"",address:"",external:"",internal:""},
+  {name:"Tabaccheria Europa",city:"Trapani",km:3.1,score:88,phone:"",whatsapp:"",email:"",website:"",address:"",external:"",internal:""},
+  {name:"Il Tabacco Croce Pietro",city:"Trapani",km:4.2,score:86,phone:"",whatsapp:"",email:"",website:"",address:"",external:"",internal:""},
+  {name:"Torre Adelaide",city:"Trapani",km:5.6,score:84,phone:"",whatsapp:"",email:"",website:"",address:"",external:"",internal:""},
+  {name:"Bar Tabacchi Centrale",city:"Trapani",km:6.3,score:81,phone:"",whatsapp:"",email:"",website:"",address:"",external:"",internal:""}
+];
+function show(id){document.querySelectorAll("main>section").forEach(x=>x.classList.add("hidden"));dfunction esc(s){
+  return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+function contactLink(type,value,name){
+  if(!value) return `<button class="disabled" onclick="no('Questo contatto')">${type}</button>`;
+  if(type.includes("WhatsApp")) return `<a href="https://wa.me/${String(value).replace(/\D/g,'')}" target="_blank">${type}</a>`;
+  if(type.includes("Telefono")) return `<a href="tel:${value}">${type}</a>`;
+  if(type.includes("E-mail")) return `<a href="mailto:${value}">${type}</a>`;
+  return `<a href="${value}" target="_blank">${type}</a>`;
+}
+function photoBox(url,label,icon){
+  return url
+    ? `<a href="${esc(url)}" target="_blank" class="photo" style="padding:0;overflow:hidden"><img src="${esc(url)}" alt="${esc(label)}" style="width:100%;height:100%;object-fit:cover"></a>`
+    : `<div class="photo">${icon} ${label}<br><small>da fonte pubblica verificata</small></div>`;
+}
+function card(i){
+  let x=t[i];
+  return `<div class="target">
+    <b>${esc(x.name)}</b><br>
+    <span class="muted">📍 ${esc(x.city)} · 📏 ${x.km} km · ⭐ ${x.score}/100</span><br>
+    <span class="badge">🔥 TARGET</span>
+    <div class="actions">
+      ${contactLink("📞 Telefono",x.phone,x.name)}
+      ${contactLink("💬 WhatsApp",x.whatsapp,x.name)}
+      ${contactLink("✉️ E-mail",x.email,x.name)}
+      ${contactLink("🌐 Sito",x.website,x.name)}
+    </div>
+    <button class="primary" style="margin-top:9px" onclick="profile(${i})">👤 SCHEDA COMPLETA</button>
+  </div>`;
+}
+function no(x){alert(x+" non ancora disponibile per questo target.");return false}
+function radar(){document.getElementById("targets").innerHTML=t.map((_,i)=>card(i)).join("");show("radar")}
+function route(){
+  document.getElementById("routeList").innerHTML=[...t].map((x,i)=>({x,i}))
+    .sort((a,b)=>a.x.km-b.x.km)
+    .map((z,n)=>`<div class="card"><b>${n+1}. ${esc(z.x.name)}</b><br>📏 ${z.x.km} km · ⭐ ${z.x.score}/100<br><button onclick="profile(${z.i})">👤 Scheda target</button></div>`).join("");
+  show("route");
+}
+function profile(i){
+  let x=t[i];
+  document.getElementById("profile").innerHTML=`
+    <h1>🏪 ${esc(x.name)}</h1>
+    <div class="card">
+      <b>📍 Indirizzo:</b> ${esc(x.address||x.city)}
+      <br><br>📏 ${x.km} km · ⭐ ${x.score}/100
+    </div>
+    <div class="card">
+      <h2>📞 Contatti</h2>
+      <div class="actions">
+        ${contactLink("📞 Telefono",x.phone,x.name)}
+        ${contactLink("💬 WhatsApp",x.whatsapp,x.name)}
+        ${contactLink("✉️ E-mail",x.email,x.name)}
+        ${contactLink("🌐 Sito",x.website,x.name)}
+      </div>
+    </div>
+    <div class="card">
+      <h2>📸 Foto</h2>
+      <div class="photos">
+        ${photoBox(x.external,"Foto esterna","📷")}
+        ${photoBox(x.internal,"Foto interna","🏠")}
+      </div>
+      <p class="muted">Le foto e i contatti vengono inseriti solo dopo verifica su fonti pubbliche.</p>
+    </div>
+    <div class="card">
+      <h2>🗺️ Navigazione</h2>
+      <a class="primary" style="width:100%;text-align:center" target="_blank"
+         href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((x.name+" "+x.city))}">
+         📍 APRI SU GOOGLE MAPS
+      </a>
+    </div>`;
+  show("profile");
+}
+onibili da fonti pubbliche verificabili.</p></div>`;show("profile")}
+</script></body></html>
