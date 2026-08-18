@@ -10,12 +10,12 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f5f7fa;color:#151923}
 body{padding-bottom:96px}
-header{background:#111827;color:#fff;padding:24px 20px calc(22px + env(safe-area-inset-top));}
+header{background:#111827;color:#fff;padding:24px 20px calc(22px + env(safe-area-inset-top))}
 .brand{font-size:27px;font-weight:800;letter-spacing:-.5px;padding-top:env(safe-area-inset-top)}
 .subtitle{margin-top:5px;color:#c8ced8;font-size:16px}
 main{max-width:760px;margin:auto;padding:26px 18px 110px}
 section{display:none}
-section.active{display:block}
+.active{display:block}
 h1{font-size:40px;margin:0 0 16px;letter-spacing:-1px}
 h2{font-size:24px;margin:0 0 18px}
 p{font-size:19px;line-height:1.45;margin:0 0 22px}
@@ -43,18 +43,25 @@ button{border:0;font-family:inherit;font-size:17px;font-weight:700;border-radius
 .report-row{display:flex;justify-content:space-between;gap:12px;padding:17px 0;border-bottom:1px solid #edf0f3}
 .report-row:last-child{border-bottom:0}
 .report-value{font-weight:800}
-.route-step{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e3e7ed;border-radius:17px;padding:15px;margin-bottom:10px}
+.route-step{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e3e7ed;border-radius:17px;padding:14px;margin-bottom:10px}
 .route-number{width:34px;height:34px;border-radius:50%;background:#eaf1ff;color:#3563bd;display:flex;align-items:center;justify-content:center;font-weight:800;flex:none}
 .empty{display:none;text-align:center;padding:30px 10px;color:#667085}
+.city-row{display:flex;gap:10px;margin-bottom:8px}
+.city-row .search{margin:0;flex:1}
+.city-row button{padding:14px 16px}
+.city-help{font-size:14px;color:#667085;margin:0 0 14px}
+.city-result{display:none;margin-top:12px}
+.city-result.show{display:block}
 nav{position:fixed;z-index:50;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #dfe3e8;display:grid;grid-template-columns:repeat(5,1fr);padding:8px 4px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.05)}
 nav button{background:transparent;color:#687184;padding:7px 2px;border-radius:12px;font-size:12px}
 nav button.active{color:#3563e9;background:#f3f6ff}
 .nav-icon{display:block;font-size:23px;line-height:27px;margin-bottom:4px}
 @media(max-width:420px){
- main{padding-left:16px;padding-right:16px}
- h1{font-size:37px}
- .stat{min-height:135px;padding:21px 17px}
- .stat strong{font-size:39px}
+main{padding-left:16px;padding-right:16px}
+h1{font-size:37px}
+.stat{min-height:135px;padding:21px 17px}
+.stat strong{font-size:39px}
+.city-row button{font-size:14px}
 }
 </style>
 </head>
@@ -62,239 +69,569 @@ nav button.active{color:#3563e9;background:#f3f6ff}
 <body>
 
 <header>
-  <div class="brand">📍 NETWORK ONE</div>
-  <div class="subtitle">Gestione rete · punti vendita · attività</div>
+<div class="brand">📍 NETWORK ONE</div>
+<div class="subtitle">Gestione rete · punti vendita · attività</div>
 </header>
 
 <main>
 
 <section id="home" class="active">
-  <h1>Home</h1>
-  <p>Benvenuto nella tua rete Network One.</p>
+<h1>Home</h1>
+<p>Benvenuto nella tua rete Network One.</p>
 
-  <div class="stats">
-    <div class="stat"><strong>5</strong><span>Punti vendita</span></div>
-    <div class="stat"><strong>Trapani</strong><span>Zona attiva</span></div>
-  </div>
+<div class="stats">
+<div class="stat"><strong>5</strong><span>Punti vendita</span></div>
+<div class="stat"><strong>Trapani</strong><span>Zona attiva</span></div>
+</div>
 
-  <div class="card">
-    <h2>Attività rapida</h2>
-    <div class="actions">
-      <button class="primary" onclick="showSection('radar')">📡 Apri Radar</button>
-      <button class="secondary" onclick="showSection('percorso')">🧭 Percorso</button>
-    </div>
-  </div>
+<div class="card">
+<h2>Attività rapida</h2>
+<div class="actions">
+<button class="primary" onclick="showSection('radar')">📡 Apri Radar</button>
+<button class="secondary" onclick="showSection('percorso')">🧭 Percorso</button>
+</div>
+</div>
 
-  <div class="card">
-    <h2>Stato rete</h2>
-    <span class="online">ONLINE</span>
-  </div>
+<div class="card">
+<h2>Stato rete</h2>
+<span class="online">ONLINE</span>
+</div>
 </section>
+
 
 <section id="radar">
-  <h1>Radar</h1>
-  <p>Controlla rapidamente i punti vendita della rete nella zona di Trapani.</p>
+<h1>Radar</h1>
+<p>Controlla rapidamente i punti vendita della rete nella zona di Trapani.</p>
 
-  <input id="search" class="search" type="search" placeholder="🔎 Cerca punto vendita..." oninput="filterPoints()">
+<input id="search" class="search" type="search"
+placeholder="🔎 Cerca punto vendita..."
+oninput="filterPoints()">
 
-  <div class="filterbar">
-    <button class="selected" onclick="setFilter('all',this)">Tutti</button>
-    <button onclick="setFilter('active',this)">Attivi</button>
-    <button onclick="setFilter('inactive',this)">Non attivi</button>
-  </div>
+<div class="filterbar">
+<button class="selected" onclick="setFilter('all',this)">Tutti</button>
+<button onclick="setFilter('active',this)">Attivi</button>
+<button onclick="setFilter('inactive',this)">Non attivi</button>
+</div>
 
-  <div id="points">
+<div id="points">
 
-    <div class="item point" data-status="active" data-name="Tabaccheria Grimaudo">
-      <div class="item-title">Tabaccheria Grimaudo</div>
-      <div class="item-info">Trapani · Punto vendita</div>
-      <span class="badge">ATTIVO</span>
-      <div class="item-actions">
-        <button class="primary" onclick="openMaps('Tabaccheria Grimaudo, Trapani')">📍 Percorso</button>
-        <button class="secondary" onclick="showDetails('Tabaccheria Grimaudo')">Dettagli</button>
-      </div>
-    </div>
+<div class="item point" data-status="active" data-name="Tabaccheria Grimaudo">
+<div class="item-title">Tabaccheria Grimaudo</div>
+<div class="item-info">Trapani · Punto vendita</div>
+<span class="badge">ATTIVO</span>
+<div class="item-actions">
+<button class="primary" onclick="openMaps('Tabaccheria Grimaudo, Trapani')">📍 Percorso</button>
+<button class="secondary" onclick="showDetails('Tabaccheria Grimaudo')">Dettagli</button>
+</div>
+</div>
 
-    <div class="item point" data-status="active" data-name="Tabaccheria Europa">
-      <div class="item-title">Tabaccheria Europa</div>
-      <div class="item-info">Trapani · Punto vendita</div>
-      <span class="badge">ATTIVO</span>
-      <div class="item-actions">
-        <button class="primary" onclick="openMaps('Tabaccheria Europa, Trapani')">📍 Percorso</button>
-        <button class="secondary" onclick="showDetails('Tabaccheria Europa')">Dettagli</button>
-      </div>
-    </div>
+<div class="item point" data-status="active" data-name="Tabaccheria Europa">
+<div class="item-title">Tabaccheria Europa</div>
+<div class="item-info">Trapani · Punto vendita</div>
+<span class="badge">ATTIVO</span>
+<div class="item-actions">
+<button class="primary" onclick="openMaps('Tabaccheria Europa, Trapani')">📍 Percorso</button>
+<button class="secondary" onclick="showDetails('Tabaccheria Europa')">Dettagli</button>
+</div>
+</div>
 
-    <div class="item point" data-status="active" data-name="Il Tabacco Croce Pietro">
-      <div class="item-title">Il Tabacco Croce Pietro</div>
-      <div class="item-info">Trapani · Punto vendita</div>
-      <span class="badge">ATTIVO</span>
-      <div class="item-actions">
-        <button class="primary" onclick="openMaps('Il Tabacco Croce Pietro, Trapani')">📍 Percorso</button>
-        <button class="secondary" onclick="showDetails('Il Tabacco Croce Pietro')">Dettagli</button>
-      </div>
-    </div>
+<div class="item point" data-status="active" data-name="Il Tabacco Croce Pietro">
+<div class="item-title">Il Tabacco Croce Pietro</div>
+<div class="item-info">Trapani · Punto vendita</div>
+<span class="badge">ATTIVO</span>
+<div class="item-actions">
+<button class="primary" onclick="openMaps('Il Tabacco Croce Pietro, Trapani')">📍 Percorso</button>
+<button class="secondary" onclick="showDetails('Il Tabacco Croce Pietro')">Dettagli</button>
+</div>
+</div>
 
-    <div class="item point" data-status="active" data-name="Torre Adelaide">
-      <div class="item-title">Torre Adelaide</div>
-      <div class="item-info">Trapani · Punto vendita</div>
-      <span class="badge">ATTIVO</span>
-      <div class="item-actions">
-        <button class="primary" onclick="openMaps('Torre Adelaide, Trapani')">📍 Percorso</button>
-        <button class="secondary" onclick="showDetails('Torre Adelaide')">Dettagli</button>
-      </div>
-    </div>
+<div class="item point" data-status="active" data-name="Torre Adelaide">
+<div class="item-title">Torre Adelaide</div>
+<div class="item-info">Trapani · Punto vendita</div>
+<span class="badge">ATTIVO</span>
+<div class="item-actions">
+<button class="primary" onclick="openMaps('Torre Adelaide, Trapani')">📍 Percorso</button>
+<button class="secondary" onclick="showDetails('Torre Adelaide')">Dettagli</button>
+</div>
+</div>
 
-    <div class="item point" data-status="active" data-name="Punto vendita centrale">
-      <div class="item-title">Punto vendita centrale</div>
-      <div class="item-info">Trapani · Punto vendita</div>
-      <span class="badge">ATTIVO</span>
-      <div class="item-actions">
-        <button class="primary" onclick="openMaps('Punto vendita centrale, Trapani')">📍 Percorso</button>
-        <button class="secondary" onclick="showDetails('Punto vendita centrale')">Dettagli</button>
-      </div>
-    </div>
+<div class="item point" data-status="active" data-name="Punto vendita centrale">
+<div class="item-title">Punto vendita centrale</div>
+<div class="item-info">Trapani · Punto vendita</div>
+<span class="badge">ATTIVO</span>
+<div class="item-actions">
+<button class="primary" onclick="openMaps('Punto vendita centrale, Trapani')">📍 Percorso</button>
+<button class="secondary" onclick="showDetails('Punto vendita centrale')">Dettagli</button>
+</div>
+</div>
 
-  </div>
+</div>
 
-  <div id="empty" class="empty">Nessun punto vendita trovato.</div>
+<div id="empty" class="empty">Nessun punto vendita trovato.</div>
 </section>
+
 
 <section id="percorso">
-  <h1>Percorso</h1>
 
-  <div class="card">
-    <h2>Giro punti vendita</h2>
-    <p>Organizza le tappe della visita nella rete Network One.</p>
-    <button class="primary" style="width:100%" onclick="openMaps('Trapani')">🧭 Apri percorso su Maps</button>
-  </div>
+<h1>Percorso</h1>
 
-  <div class="route-step"><div class="route-number">1</div><div><strong>Tabaccheria Grimaudo</strong><br><small>Trapani</small></div></div>
-  <div class="route-step"><div class="route-number">2</div><div><strong>Tabaccheria Europa</strong><br><small>Trapani</small></div></div>
-  <div class="route-step"><div class="route-number">3</div><div><strong>Il Tabacco Croce Pietro</strong><br><small>Trapani</small></div></div>
-  <div class="route-step"><div class="route-number">4</div><div><strong>Torre Adelaide</strong><br><small>Trapani</small></div></div>
-  <div class="route-step"><div class="route-number">5</div><div><strong>Punto vendita centrale</strong><br><small>Trapani</small></div></div>
+<div class="card">
+
+<h2>Cerca per città o zona</h2>
+
+<div class="city-row">
+<input id="citySearch"
+class="search"
+type="search"
+value="Trapani"
+placeholder="Inserisci città o zona...">
+
+<button class="primary" onclick="searchCity()">Cerca</button>
+</div>
+
+<div class="city-help">
+Inserisci una città o una zona.
+Per Trapani vengono mostrati i punti già presenti nella rete.
+Per altre località puoi cercare i punti vendita vicini su Maps.
+</div>
+
+<div id="cityResult" class="city-result">
+
+<div class="notice" id="cityMessage"></div>
+
+<br>
+
+<button class="primary"
+style="width:100%"
+onclick="openCitySearch()">
+📍 Cerca punti vendita vicino a questa zona
+</button>
+
+</div>
+
+</div>
+
+
+<div id="trapaniPoints">
+
+<div class="route-step">
+<div class="route-number">1</div>
+<div style="flex:1">
+<strong>Tabaccheria Grimaudo</strong><br>
+<small>Trapani</small>
+</div>
+<button class="primary"
+style="padding:10px 12px;font-size:13px"
+onclick="openMaps('Tabaccheria Grimaudo, Trapani')">
+Percorso
+</button>
+</div>
+
+<div class="route-step">
+<div class="route-number">2</div>
+<div style="flex:1">
+<strong>Tabaccheria Europa</strong><br>
+<small>Trapani</small>
+</div>
+<button class="primary"
+style="padding:10px 12px;font-size:13px"
+onclick="openMaps('Tabaccheria Europa, Trapani')">
+Percorso
+</button>
+</div>
+
+<div class="route-step">
+<div class="route-number">3</div>
+<div style="flex:1">
+<strong>Il Tabacco Croce Pietro</strong><br>
+<small>Trapani</small>
+</div>
+<button class="primary"
+style="padding:10px 12px;font-size:13px"
+onclick="openMaps('Il Tabacco Croce Pietro, Trapani')">
+Percorso
+</button>
+</div>
+
+<div class="route-step">
+<div class="route-number">4</div>
+<div style="flex:1">
+<strong>Torre Adelaide</strong><br>
+<small>Trapani</small>
+</div>
+<button class="primary"
+style="padding:10px 12px;font-size:13px"
+onclick="openMaps('Torre Adelaide, Trapani')">
+Percorso
+</button>
+</div>
+
+<div class="route-step">
+<div class="route-number">5</div>
+<div style="flex:1">
+<strong>Punto vendita centrale</strong><br>
+<small>Trapani</small>
+</div>
+<button class="primary"
+style="padding:10px 12px;font-size:13px"
+onclick="openMaps('Punto vendita centrale, Trapani')">
+Percorso
+</button>
+</div>
+
+</div>
+
 </section>
+
 
 <section id="profilo">
-  <h1>Profilo</h1>
-  <div class="card">
-    <h2>Network One</h2>
-    <div class="report-row"><span>Zona</span><span class="report-value">Trapani</span></div>
-    <div class="report-row"><span>Punti vendita</span><span class="report-value">5</span></div>
-    <div class="report-row"><span>Stato rete</span><span class="report-value">ONLINE</span></div>
-  </div>
-  <div class="notice">Area riservata alla gestione della rete e delle attività dei punti vendita.</div>
+
+<h1>Profilo</h1>
+
+<div class="card">
+
+<h2>Network One</h2>
+
+<div class="report-row">
+<span>Zona</span>
+<span class="report-value">Trapani</span>
+</div>
+
+<div class="report-row">
+<span>Punti vendita</span>
+<span class="report-value">5</span>
+</div>
+
+<div class="report-row">
+<span>Stato rete</span>
+<span class="report-value">ONLINE</span>
+</div>
+
+</div>
+
+<div class="notice">
+Area riservata alla gestione della rete e delle attività dei punti vendita.
+</div>
+
 </section>
 
+
 <section id="report">
-  <h1>Report</h1>
-  <div class="card">
-    <h2>Situazione rete</h2>
-    <div class="report-row"><span>Punti vendita</span><span class="report-value">5</span></div>
-    <div class="report-row"><span>Zona attiva</span><span class="report-value">Trapani</span></div>
-    <div class="report-row"><span>Stato</span><span class="report-value">ONLINE</span></div>
-  </div>
-  <div class="card">
-    <h2>Attività</h2>
-    <p>La rete è attualmente operativa.</p>
-    <span class="online">RETE ONLINE</span>
-  </div>
+
+<h1>Report</h1>
+
+<div class="card">
+
+<h2>Situazione rete</h2>
+
+<div class="report-row">
+<span>Punti vendita</span>
+<span class="report-value">5</span>
+</div>
+
+<div class="report-row">
+<span>Zona attiva</span>
+<span class="report-value">Trapani</span>
+</div>
+
+<div class="report-row">
+<span>Stato rete</span>
+<span class="report-value">ONLINE</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Attività</h2>
+
+<p>La rete è attualmente operativa.</p>
+
+<span class="online">RETE ONLINE</span>
+
+</div>
+
 </section>
 
 </main>
 
+
 <nav>
-  <button id="nav-home" class="active" onclick="showSection('home')"><span class="nav-icon">⌂</span>Home</button>
-  <button id="nav-radar" onclick="showSection('radar')"><span class="nav-icon">▤</span>Radar</button>
-  <button id="nav-percorso" onclick="showSection('percorso')"><span class="nav-icon">🧭</span>Percorso</button>
-  <button id="nav-profilo" onclick="showSection('profilo')"><span class="nav-icon">♙</span>Profilo</button>
-  <button id="nav-report" onclick="showSection('report')"><span class="nav-icon">▥</span>Report</button>
+
+<button id="nav-home"
+class="active"
+onclick="showSection('home')">
+<span class="nav-icon">⌂</span>
+Home
+</button>
+
+<button id="nav-radar"
+onclick="showSection('radar')">
+<span class="nav-icon">▤</span>
+Radar
+</button>
+
+<button id="nav-percorso"
+onclick="showSection('percorso')">
+<span class="nav-icon">🧭</span>
+Percorso
+</button>
+
+<button id="nav-profilo"
+onclick="showSection('profilo')">
+<span class="nav-icon">♙</span>
+Profilo
+</button>
+
+<button id="nav-report"
+onclick="showSection('report')">
+<span class="nav-icon">▥</span>
+Report
+</button>
+
 </nav>
 
+
 <script>
-let currentFilter = "all";
+
+let currentFilter="all";
+
 
 function showSection(id){
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  const selected = document.getElementById(id);
-  if(selected) selected.classList.add("active");
 
-  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
-  const navButton = document.getElementById("nav-" + id);
-  if(navButton) navButton.classList.add("active");
+document.querySelectorAll("section")
+.forEach(s=>s.classList.remove("active"));
 
-  window.scrollTo({top:0, behavior:"smooth"});
+const selected=document.getElementById(id);
+
+if(selected)
+selected.classList.add("active");
+
+document.querySelectorAll("nav button")
+.forEach(b=>b.classList.remove("active"));
+
+const navButton=document.getElementById("nav-"+id);
+
+if(navButton)
+navButton.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
 }
 
-function setFilter(filter, button){
-  currentFilter = filter;
-  document.querySelectorAll(".filterbar button").forEach(b => b.classList.remove("selected"));
-  button.classList.add("selected");
-  filterPoints();
+
+function setFilter(filter,button){
+
+currentFilter=filter;
+
+document.querySelectorAll(".filterbar button")
+.forEach(b=>b.classList.remove("selected"));
+
+button.classList.add("selected");
+
+filterPoints();
+
 }
+
 
 function filterPoints(){
-  const value = document.getElementById("search").value.toLowerCase().trim();
-  let visible = 0;
 
-  document.querySelectorAll(".point").forEach(point => {
-    const name = point.dataset.name.toLowerCase();
-    const status = point.dataset.status;
-    const matchesText = name.includes(value);
-    const matchesFilter = currentFilter === "all" || status === currentFilter;
+const value=document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
 
-    if(matchesText && matchesFilter){
-      point.style.display = "";
-      visible++;
-    }else{
-      point.style.display = "none";
-    }
-  });
+let visible=0;
 
-  document.getElementById("empty").style.display = visible ? "none" : "block";
+document.querySelectorAll(".point")
+.forEach(point=>{
+
+const name=point.dataset.name.toLowerCase();
+const status=point.dataset.status;
+
+const matchesText=name.includes(value);
+
+const matchesFilter=
+currentFilter==="all" ||
+status===currentFilter;
+
+if(matchesText && matchesFilter){
+
+point.style.display="";
+visible++;
+
+}else{
+
+point.style.display="none";
+
 }
+
+});
+
+document.getElementById("empty")
+.style.display=visible?"none":"block";
+
+}
+
 
 function openMaps(query){
-  const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(query);
-  window.location.href = url;
+
+const url=
+"https://www.google.com/maps/search/?api=1&query="+
+encodeURIComponent(query);
+
+window.location.href=url;
+
 }
+
 
 function showDetails(name){
-  const message =
-    name +
-    "\n\nZona: Trapani" +
-    "\nStato: ATTIVO" +
-    "\n\nDa qui potrai gestire le informazioni del punto vendita.";
 
-  const box = document.getElementById("detailsMessage");
-  if(box){
-    box.textContent = message;
-    box.style.display = "block";
-    clearTimeout(window.detailsTimer);
-    window.detailsTimer = setTimeout(() => {
-      box.style.display = "none";
-    }, 3500);
-  }
+const box=
+document.getElementById("detailsMessage");
+
+if(box){
+
+box.textContent=
+name+
+"\n\nZona: Trapani"+
+"\nStato: ATTIVO";
+
+box.style.display="block";
+
+clearTimeout(window.detailsTimer);
+
+window.detailsTimer=
+setTimeout(
+()=>box.style.display="none",
+3500
+);
+
 }
+
+}
+
+
+function searchCity(){
+
+const city=
+document
+.getElementById("citySearch")
+.value
+.trim();
+
+if(!city){
+
+alert("Inserisci una città o una zona.");
+
+return;
+
+}
+
+const result=
+document.getElementById("cityResult");
+
+const message=
+document.getElementById("cityMessage");
+
+const localPoints=
+document.getElementById("trapaniPoints");
+
+result.classList.add("show");
+
+
+if(city.toLowerCase()==="trapani"){
+
+localPoints.style.display="block";
+
+message.innerHTML=
+"<strong>Zona selezionata: Trapani</strong><br><br>"+
+"Sono disponibili i 5 punti vendita presenti nella rete.";
+
+}else{
+
+localPoints.style.display="none";
+
+message.innerHTML=
+"<strong>Zona selezionata: "+
+escapeHtml(city)+
+"</strong><br><br>"+
+"I punti della rete per questa zona non sono ancora presenti nel database. "+
+"Puoi cercare subito i punti vendita vicini su Google Maps.";
+
+}
+
+}
+
+
+function openCitySearch(){
+
+const city=
+document
+.getElementById("citySearch")
+.value
+.trim();
+
+if(!city){
+
+alert("Inserisci una città o una zona.");
+
+return;
+
+}
+
+openMaps(
+"tabaccherie e punti vendita "+city
+);
+
+}
+
+
+function escapeHtml(value){
+
+return value.replace(
+/[&<>"']/g,
+function(c){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[c];
+
+});
+
+}
+
 </script>
 
-<div id="detailsMessage" style="
-  display:none;
-  position:fixed;
-  left:16px;
-  right:16px;
-  bottom:92px;
-  z-index:100;
-  background:#111827;
-  color:#fff;
-  border-radius:16px;
-  padding:15px 17px;
-  font-size:15px;
-  line-height:1.4;
-  box-shadow:0 8px 30px rgba(0,0,0,.22);
-  white-space:pre-line;
-"></div>
+
+<div id="detailsMessage"
+style="
+display:none;
+position:fixed;
+left:16px;
+right:16px;
+bottom:92px;
+z-index:100;
+background:#111827;
+color:#fff;
+border-radius:16px;
+padding:15px 17px;
+font-size:15px;
+line-height:1.4;
+box-shadow:0 8px 30px rgba(0,0,0,.22);
+white-space:pre-line;
+">
+</div>
 
 </body>
 </html>
