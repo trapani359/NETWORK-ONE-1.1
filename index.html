@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <meta name="theme-color" content="#111827">
-<title>Network One V1.5</title>
+
+<title>Network One V1.6</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
@@ -27,7 +33,7 @@ body{
 header{
   background:#111827;
   color:#fff;
-  padding:22px 20px 24px;
+  padding:24px 20px 25px;
 }
 
 .brand{
@@ -37,7 +43,7 @@ header{
 }
 
 .subtitle{
-  margin-top:5px;
+  margin-top:6px;
   color:#c8ced8;
   font-size:16px;
 }
@@ -64,7 +70,12 @@ h1{
 
 h2{
   font-size:24px;
-  margin:0 0 18px;
+  margin:0 0 16px;
+}
+
+h3{
+  font-size:19px;
+  margin:0 0 8px;
 }
 
 p{
@@ -76,7 +87,7 @@ p{
 .card{
   background:#fff;
   border-radius:22px;
-  padding:24px;
+  padding:22px;
   margin-bottom:18px;
   box-shadow:0 4px 18px rgba(20,30,50,.06);
   border:1px solid #edf0f4;
@@ -86,23 +97,23 @@ p{
   background:#111827;
   color:#fff;
   border-radius:22px;
-  padding:24px;
+  padding:23px;
   margin-bottom:18px;
 }
 
 .goal-label{
-  font-size:15px;
+  font-size:14px;
   color:#c8ced8;
 }
 
 .goal-value{
-  font-size:43px;
+  font-size:42px;
   font-weight:800;
   margin:4px 0 12px;
 }
 
 .progress{
-  height:14px;
+  height:13px;
   background:#374151;
   border-radius:20px;
   overflow:hidden;
@@ -117,9 +128,9 @@ p{
 }
 
 .goal-info{
-  margin-top:12px;
+  margin-top:11px;
   color:#d1d5db;
-  font-size:16px;
+  font-size:15px;
 }
 
 .stats{
@@ -133,14 +144,14 @@ p{
   background:#fff;
   border-radius:20px;
   padding:20px 18px;
-  min-height:125px;
+  min-height:120px;
   box-shadow:0 4px 18px rgba(20,30,50,.05);
   border:1px solid #e8ebf0;
 }
 
 .stat strong{
   display:block;
-  font-size:38px;
+  font-size:37px;
   line-height:1.05;
   margin-bottom:10px;
 }
@@ -148,12 +159,6 @@ p{
 .stat span{
   font-size:16px;
   color:#687184;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
 }
 
 button{
@@ -176,43 +181,189 @@ button{
   color:#283249;
 }
 
-.danger{
-  background:#fff0f0;
-  color:#c62828;
-}
-
 .success{
   background:#eaf7ef;
   color:#18794e;
 }
 
-.online{
-  display:inline-block;
-  background:#eaf1ff;
-  color:#3563bd;
-  font-size:17px;
-  font-weight:800;
-  padding:11px 20px;
-  border-radius:30px;
+.danger{
+  background:#fff0f0;
+  color:#c62828;
 }
 
-/* GIORNATA */
+.warning{
+  background:#fff8e6;
+  color:#765b13;
+}
 
-.day-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
+.full{
+  width:100%;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  border:1px solid #dfe4eb;
+  background:#fff;
+  border-radius:14px;
+  padding:14px;
+  font-family:inherit;
+  font-size:16px;
+  outline:none;
+  margin-bottom:13px;
+}
+
+textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+label{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  color:#475467;
+  margin-bottom:6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#3563e9;
+}
+
+.city-box{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:9px;
+}
+
+.city-box button{
+  padding:14px 18px;
+}
+
+.location-title{
+  font-size:14px;
+  color:#667085;
+  margin-bottom:5px;
+}
+
+.location-name{
+  font-size:28px;
+  font-weight:800;
+}
+
+.map-search{
+  background:#3563e9;
+  color:#fff;
+  border-radius:18px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.map-search h3{
+  font-size:20px;
+}
+
+.map-search button{
+  background:#fff;
+  color:#274dbb;
+  width:100%;
+}
+
+.info{
+  background:#eef4ff;
+  border:1px solid #d9e5ff;
+  color:#29488f;
+  border-radius:16px;
+  padding:15px;
+  line-height:1.45;
   margin-bottom:15px;
 }
 
-.date-box{
-  background:#edf1f7;
-  border-radius:13px;
-  padding:10px 12px;
-  color:#344054;
+.notice{
+  background:#fff8e6;
+  border:1px solid #f1dfaa;
+  color:#624d13;
+  border-radius:16px;
+  padding:15px;
+  line-height:1.45;
+}
+
+.point{
+  background:#fff;
+  border:1px solid #e3e7ed;
+  border-radius:18px;
+  padding:17px;
+  margin-bottom:11px;
+}
+
+.point-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.point-name{
+  font-size:19px;
+  font-weight:800;
+}
+
+.point-city{
+  color:#667085;
+  margin-top:5px;
   font-size:14px;
-  font-weight:700;
+}
+
+.score{
+  background:#eaf1ff;
+  color:#3563bd;
+  border-radius:20px;
+  padding:7px 10px;
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.point-info{
+  margin-top:12px;
+  color:#667085;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.point-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:13px;
+}
+
+.point-actions button{
+  padding:11px 8px;
+  font-size:13px;
+}
+
+.target{
+  border:2px solid #3563e9;
+}
+
+.target-label{
+  display:inline-block;
+  background:#3563e9;
+  color:#fff;
+  border-radius:20px;
+  padding:6px 10px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:9px;
 }
 
 .activity{
@@ -224,13 +375,7 @@ button{
 }
 
 .activity.done{
-  opacity:.58;
-}
-
-.activity-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
+  opacity:.55;
 }
 
 .activity-title{
@@ -250,7 +395,7 @@ button{
 }
 
 .activity-info{
-  margin-top:12px;
+  margin-top:11px;
   color:#667085;
   line-height:1.55;
   font-size:15px;
@@ -268,144 +413,10 @@ button{
   font-size:13px;
 }
 
-.form-row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-label{
-  display:block;
-  font-size:14px;
-  font-weight:700;
-  color:#475467;
-  margin-bottom:6px;
-}
-
-input,select,textarea{
-  width:100%;
-  border:1px solid #dfe4eb;
-  background:#fff;
-  border-radius:14px;
-  padding:14px;
-  font-family:inherit;
-  font-size:16px;
-  outline:none;
-  margin-bottom:14px;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-input:focus,select:focus,textarea:focus{
-  border-color:#3563e9;
-}
-
-.empty{
-  text-align:center;
-  padding:28px 10px;
-  color:#667085;
-  background:#fff;
-  border-radius:18px;
-  border:1px dashed #d9dee7;
-}
-
-.quick-buttons{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-bottom:15px;
-}
-
-.quick-buttons button{
-  font-size:13px;
-  padding:13px 5px;
-}
-
-/* RADAR */
-
-.search{
-  width:100%;
-  border:1px solid #dfe4eb;
-  background:#fff;
-  border-radius:15px;
-  padding:16px;
-  font-size:17px;
-  outline:none;
-  margin-bottom:12px;
-}
-
-.filterbar{
-  display:flex;
-  gap:8px;
-  overflow:auto;
-  margin-bottom:16px;
-}
-
-.filterbar button{
-  white-space:nowrap;
-  padding:11px 15px;
-  font-size:14px;
-  background:#edf1f7;
-  color:#344054;
-}
-
-.filterbar button.selected{
-  background:#3563e9;
-  color:#fff;
-}
-
-.item{
-  background:#fff;
-  border:1px solid #e3e7ed;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:12px;
-}
-
-.item-title{
-  font-size:19px;
-  font-weight:750;
-  margin-bottom:7px;
-}
-
-.item-info{
-  color:#667085;
-  font-size:15px;
-  line-height:1.5;
-}
-
-.item-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:13px;
-}
-
-.item-actions button{
-  padding:12px 10px;
-  font-size:14px;
-}
-
-.badge{
-  display:inline-block;
-  margin-top:10px;
-  padding:7px 12px;
-  border-radius:20px;
-  background:#eaf7ef;
-  color:#18794e;
-  font-size:13px;
-  font-weight:800;
-}
-
-/* PERCORSO */
-
 .route-step{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
   background:#fff;
   border:1px solid #e3e7ed;
   border-radius:17px;
@@ -426,13 +437,25 @@ input:focus,select:focus,textarea:focus{
   flex:none;
 }
 
-/* REPORT */
+.route-text{
+  flex:1;
+}
+
+.route-actions{
+  display:flex;
+  gap:5px;
+}
+
+.route-actions button{
+  padding:9px;
+  font-size:13px;
+}
 
 .report-row{
   display:flex;
   justify-content:space-between;
   gap:12px;
-  padding:17px 0;
+  padding:16px 0;
   border-bottom:1px solid #edf0f3;
 }
 
@@ -444,16 +467,56 @@ input:focus,select:focus,textarea:focus{
   font-weight:800;
 }
 
-.notice{
-  background:#fff8e6;
-  border:1px solid #f1dfaa;
-  border-radius:16px;
-  padding:16px;
-  line-height:1.45;
-  color:#624d13;
+.empty{
+  text-align:center;
+  padding:28px 12px;
+  color:#667085;
+  background:#fff;
+  border-radius:18px;
+  border:1px dashed #d9dee7;
 }
 
-/* NAV */
+.filterbar{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin-bottom:14px;
+}
+
+.filterbar button{
+  white-space:nowrap;
+  padding:10px 14px;
+  font-size:14px;
+  background:#edf1f7;
+  color:#344054;
+}
+
+.filterbar button.selected{
+  background:#3563e9;
+  color:#fff;
+}
+
+.search{
+  width:100%;
+  border:1px solid #dfe4eb;
+  background:#fff;
+  border-radius:15px;
+  padding:15px;
+  font-size:16px;
+  outline:none;
+  margin-bottom:12px;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.quick-grid button{
+  font-size:13px;
+  padding:13px 5px;
+}
 
 nav{
   position:fixed;
@@ -505,6 +568,7 @@ nav button.active{
 }
 
 @media(max-width:420px){
+
   main{
     padding-left:16px;
     padding-right:16px;
@@ -515,35 +579,55 @@ nav button.active{
   }
 
   .stat strong{
-    font-size:36px;
+    font-size:35px;
   }
 
-  .form-row{
+  .city-box{
     grid-template-columns:1fr;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
+
   <div class="brand">📍 NETWORK ONE</div>
-  <div class="subtitle">Gestione rete · punti vendita · attività</div>
+
+  <div class="subtitle">
+    Gestione rete · clienti · target · visite
+  </div>
+
 </header>
+
 
 <main>
 
-<!-- HOME -->
+
+<!-- ================= HOME ================= -->
 
 <section id="home" class="active">
 
-  <h1 id="greeting">Buongiorno, Claudio</h1>
-  <p>📍 Trapani · La mia giornata</p>
+  <h1>Buongiorno, Claudio</h1>
+
+  <p>
+    📍 <span id="homeCity">Trapani</span> · La mia giornata
+  </p>
+
 
   <div class="goal">
-    <div class="goal-label">OBIETTIVO</div>
-    <div class="goal-value">€ 50.000</div>
+
+    <div class="goal-label">
+      OBIETTIVO
+    </div>
+
+    <div class="goal-value">
+      € 50.000
+    </div>
 
     <div class="progress">
       <span></span>
@@ -552,7 +636,9 @@ nav button.active{
     <div class="goal-info">
       € 17.500 registrati · € 32.500 rimanenti
     </div>
+
   </div>
+
 
   <div class="stats">
 
@@ -578,47 +664,56 @@ nav button.active{
 
   </div>
 
+
   <div class="card">
-    <h2>🔥 TOP TARGET</h2>
+
+    <h2>🔥 TOP 5 TARGET</h2>
+
     <p>
-      <strong id="targetCount" style="font-size:34px;">0</strong>
-      attività da seguire
+      I punti con il punteggio più alto nella città selezionata.
     </p>
 
-    <button class="primary" style="width:100%"
+    <button class="primary full"
+            onclick="showSection('targets')">
+
+      🎯 Vedi TOP 5
+
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>📅 La mia giornata</h2>
+
+    <p>
+      Gestisci clienti, telefonate, richiami, visite e appuntamenti.
+    </p>
+
+    <button class="primary full"
             onclick="showSection('giornata')">
-      📅 Apri la mia giornata
-    </button>
-  </div>
 
-  <div class="card">
+      Apri la mia giornata
 
-    <h2>🔥 Radar nelle vicinanze</h2>
-
-    <p>
-      GPS reale · trova punti vendita nella zona in cui ti trovi.
-    </p>
-
-    <button class="primary"
-            style="width:100%"
-            onclick="showSection('radar')">
-      📡 Apri Radar
     </button>
 
   </div>
 
+
   <div class="card">
 
-    <h2>🚗 Giro consigliato</h2>
+    <h2>📍 Cerca una città</h2>
 
     <p>
-      Organizza le visite e apri il percorso su Maps.
+      Domani sei a Trapani? Oppure a Marsala, Erice, Valderice o in un'altra zona?
     </p>
 
-    <button class="secondary"
-            style="width:100%"
+    <button class="secondary full"
             onclick="showSection('percorso')">
-      🧭 Apri Percorso
+
+      🧭 Scegli città e cerca punti
+
     </button>
 
   </div>
@@ -626,27 +721,23 @@ nav button.active{
 </section>
 
 
-<!-- GIORNATA -->
+<!-- ================= GIORNATA ================= -->
 
 <section id="giornata">
 
-  <div class="day-header">
+  <h1>La mia giornata</h1>
 
-    <div>
-      <h1>La mia giornata</h1>
-      <p style="margin:0">Clienti, chiamate e appuntamenti</p>
-    </div>
-
-    <div class="date-box" id="todayLabel"></div>
-
-  </div>
+  <p>
+    📅 Organizza tutto quello che devi fare oggi.
+  </p>
 
 
   <div class="card">
 
     <h2>➕ Nuova attività</h2>
 
-    <div class="quick-buttons">
+
+    <div class="quick-grid">
 
       <button class="secondary"
               onclick="setActivityType('Chiamata')">
@@ -665,45 +756,61 @@ nav button.active{
 
     </div>
 
+
+    <br>
+
+
     <label>Cliente / Punto vendita</label>
+
     <input id="clientName"
            type="text"
-           placeholder="Es. Tabaccheria Grimaudo">
+           placeholder="Es. Tabaccheria Rossi">
+
 
     <div class="form-row">
 
       <div>
+
         <label>Città</label>
+
         <input id="clientCity"
                type="text"
                placeholder="Trapani">
+
       </div>
 
       <div>
+
         <label>Telefono</label>
+
         <input id="clientPhone"
                type="tel"
-               placeholder="333 1234567">
+               placeholder="3331234567">
+
       </div>
 
     </div>
 
+
+    <label>Tipo attività</label>
+
+    <select id="activityType">
+
+      <option value="Chiamata">📞 Chiamata</option>
+
+      <option value="Visita">🏪 Visita</option>
+
+      <option value="Richiamo">🔄 Richiamo</option>
+
+      <option value="Appuntamento">📅 Appuntamento</option>
+
+    </select>
+
+
     <div class="form-row">
 
       <div>
-        <label>Tipo attività</label>
 
-        <select id="activityType">
-
-          <option value="Chiamata">📞 Chiamata</option>
-          <option value="Visita">🏪 Visita</option>
-          <option value="Richiamo">🔄 Richiamo</option>
-          <option value="Appuntamento">📅 Appuntamento</option>
-
-        </select>
-      </div>
-
-      <div>
         <label>Data</label>
 
         <input id="activityDate"
@@ -711,39 +818,44 @@ nav button.active{
 
       </div>
 
-    </div>
-
-    <div class="form-row">
-
       <div>
+
         <label>Ora</label>
 
         <input id="activityTime"
                type="time">
-      </div>
-
-      <div>
-        <label>Priorità</label>
-
-        <select id="priority">
-
-          <option value="Normale">Normale</option>
-          <option value="Alta">🔥 Alta</option>
-          <option value="Top">🚀 TOP</option>
-
-        </select>
 
       </div>
 
     </div>
 
+
+    <label>Priorità</label>
+
+    <select id="priority">
+
+      <option value="Normale">
+        Normale
+      </option>
+
+      <option value="Alta">
+        🔥 Alta
+      </option>
+
+      <option value="Top">
+        🚀 TOP
+      </option>
+
+    </select>
+
+
     <label>Note</label>
 
     <textarea id="activityNotes"
-              placeholder="Cosa devo ricordare? Cosa abbiamo concordato?"></textarea>
+              placeholder="Cosa devo ricordare?"></textarea>
 
-    <button class="primary"
-            style="width:100%"
+
+    <button class="primary full"
             onclick="saveActivity()">
 
       💾 Salva attività
@@ -760,360 +872,396 @@ nav button.active{
 </section>
 
 
-<!-- RADAR -->
+<!-- ================= PERCORSO ================= -->
+
+<section id="percorso">
+
+  <h1>Percorso</h1>
+
+  <p>
+    Scegli tu la città in cui andrai e cerca i punti vendita nelle vicinanze.
+  </p>
+
+
+  <div class="card">
+
+    <div class="location-title">
+      CITTÀ / ZONA SELEZIONATA
+    </div>
+
+    <div class="location-name"
+         id="selectedCity">
+      Trapani
+    </div>
+
+    <br>
+
+
+    <div class="city-box">
+
+      <input id="cityInput"
+             type="text"
+             value="Trapani"
+             placeholder="Es. Marsala">
+
+      <button class="primary"
+              onclick="selectCity()">
+
+        Cerca
+
+      </button>
+
+    </div>
+
+
+    <div class="map-search">
+
+      <h3>
+        📍 Cerca tutti i punti vendita
+      </h3>
+
+      <p style="color:#fff;font-size:15px">
+
+        Google Maps mostrerà le tabaccherie e gli altri punti
+        presenti nella zona scelta.
+
+      </p>
+
+      <button onclick="searchGoogleMaps()">
+
+        🗺️ Cerca su Google Maps
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="info">
+
+    <strong>Come funziona?</strong><br><br>
+
+    1. Inserisci la città.<br>
+    2. Apri Google Maps.<br>
+    3. Guarda tutti i punti presenti.<br>
+    4. Torna qui e aggiungi quelli interessanti.<br>
+    5. L'app calcola il punteggio e crea la TOP 5.<br>
+    6. Decidi tu quali visitare.
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>➕ Aggiungi punto trovato su Maps</h2>
+
+
+    <label>Nome punto vendita</label>
+
+    <input id="newPointName"
+           type="text"
+           placeholder="Es. Tabaccheria Rossi">
+
+
+    <label>Indirizzo</label>
+
+    <input id="newPointAddress"
+           type="text"
+           placeholder="Via Roma 10">
+
+
+    <label>Telefono</label>
+
+    <input id="newPointPhone"
+           type="tel"
+           placeholder="3331234567">
+
+
+    <label>Valutazione opportunità</label>
+
+    <select id="newPointPriority">
+
+      <option value="1">
+        Normale
+      </option>
+
+      <option value="2">
+        🔥 Interessante
+      </option>
+
+      <option value="3">
+        🚀 Molto interessante
+      </option>
+
+    </select>
+
+
+    <label>Note</label>
+
+    <textarea id="newPointNotes"
+              placeholder="Es. non conosco ancora il titolare"></textarea>
+
+
+    <button class="primary full"
+            onclick="addPoint()">
+
+      ➕ Aggiungi alla lista
+
+    </button>
+
+  </div>
+
+
+  <h2>
+    📋 Punti nella zona
+  </h2>
+
+  <div class="filterbar">
+
+    <button class="selected"
+            onclick="setPointFilter('all',this)">
+      Tutti
+    </button>
+
+    <button onclick="setPointFilter('visit',this)">
+      Da visitare
+    </button>
+
+    <button onclick="setPointFilter('selected',this)">
+      Selezionati
+    </button>
+
+  </div>
+
+
+  <div id="cityPoints"></div>
+
+
+  <div class="card">
+
+    <h2>🚗 Percorso selezionato</h2>
+
+    <p>
+      I punti che scegli qui verranno utilizzati per creare il percorso.
+    </p>
+
+    <button class="primary full"
+            onclick="openSelectedRoute()">
+
+      🧭 Apri percorso su Google Maps
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= TOP TARGET ================= -->
+
+<section id="targets">
+
+  <h1>TOP 5</h1>
+
+  <p>
+    🎯 I cinque punti con il punteggio più alto nella città selezionata.
+  </p>
+
+
+  <div class="card">
+
+    <div class="location-title">
+      ZONA
+    </div>
+
+    <div class="location-name"
+         id="targetCity">
+      Trapani
+    </div>
+
+  </div>
+
+
+  <div id="topTargets"></div>
+
+
+  <div class="notice">
+
+    💡 La TOP 5 è un aiuto per organizzare il lavoro.
+    La decisione finale su quale cliente visitare rimane sempre tua.
+
+  </div>
+
+</section>
+
+
+<!-- ================= RADAR ================= -->
 
 <section id="radar">
 
   <h1>Radar</h1>
 
   <p>
-    Cerca rapidamente i punti vendita della rete.
+    Usa il GPS del telefono per aprire Google Maps nella tua posizione.
   </p>
 
-  <input id="search"
-         class="search"
-         type="search"
-         placeholder="🔎 Cerca punto vendita..."
-         oninput="filterPoints()">
-
-  <div class="filterbar">
-
-    <button class="selected"
-            onclick="setFilter('all',this)">
-      Tutti
-    </button>
-
-    <button onclick="setFilter('active',this)">
-      Attivi
-    </button>
-
-    <button onclick="setFilter('inactive',this)">
-      Non attivi
-    </button>
-
-  </div>
-
-
-  <div id="points">
-
-    <div class="item point"
-         data-status="active"
-         data-name="Tabaccheria Grimaudo">
-
-      <div class="item-title">
-        Tabaccheria Grimaudo
-      </div>
-
-      <div class="item-info">
-        Trapani · Punto vendita
-      </div>
-
-      <span class="badge">
-        ATTIVO
-      </span>
-
-      <div class="item-actions">
-
-        <button class="primary"
-                onclick="openMaps('Tabaccheria Grimaudo, Trapani')">
-          📍 Percorso
-        </button>
-
-        <button class="secondary"
-                onclick="addQuickActivity('Tabaccheria Grimaudo','Trapani')">
-          📅 Agenda
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="item point"
-         data-status="active"
-         data-name="Tabaccheria Europa">
-
-      <div class="item-title">
-        Tabaccheria Europa
-      </div>
-
-      <div class="item-info">
-        Trapani · Punto vendita
-      </div>
-
-      <span class="badge">
-        ATTIVO
-      </span>
-
-      <div class="item-actions">
-
-        <button class="primary"
-                onclick="openMaps('Tabaccheria Europa, Trapani')">
-          📍 Percorso
-        </button>
-
-        <button class="secondary"
-                onclick="addQuickActivity('Tabaccheria Europa','Trapani')">
-          📅 Agenda
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="item point"
-         data-status="active"
-         data-name="Il Tabacco Croce Pietro">
-
-      <div class="item-title">
-        Il Tabacco Croce Pietro
-      </div>
-
-      <div class="item-info">
-        Trapani · Punto vendita
-      </div>
-
-      <span class="badge">
-        ATTIVO
-      </span>
-
-      <div class="item-actions">
-
-        <button class="primary"
-                onclick="openMaps('Il Tabacco Croce Pietro, Trapani')">
-          📍 Percorso
-        </button>
-
-        <button class="secondary"
-                onclick="addQuickActivity('Il Tabacco Croce Pietro','Trapani')">
-          📅 Agenda
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="item point"
-         data-status="active"
-         data-name="Torre Adelaide">
-
-      <div class="item-title">
-        Torre Adelaide
-      </div>
-
-      <div class="item-info">
-        Trapani · Punto vendita
-      </div>
-
-      <span class="badge">
-        ATTIVO
-      </span>
-
-      <div class="item-actions">
-
-        <button class="primary"
-                onclick="openMaps('Torre Adelaide, Trapani')">
-          📍 Percorso
-        </button>
-
-        <button class="secondary"
-                onclick="addQuickActivity('Torre Adelaide','Trapani')">
-          📅 Agenda
-        </button>
-
-      </div>
-
-    </div>
-
-
-    <div class="item point"
-         data-status="active"
-         data-name="Punto vendita centrale">
-
-      <div class="item-title">
-        Punto vendita centrale
-      </div>
-
-      <div class="item-info">
-        Trapani · Punto vendita
-      </div>
-
-      <span class="badge">
-        ATTIVO
-      </span>
-
-      <div class="item-actions">
-
-        <button class="primary"
-                onclick="openMaps('Punto vendita centrale, Trapani')">
-          📍 Percorso
-        </button>
-
-        <button class="secondary"
-                onclick="addQuickActivity('Punto vendita centrale','Trapani')">
-          📅 Agenda
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PERCORSO -->
-
-<section id="percorso">
-
-  <h1>Percorso</h1>
 
   <div class="card">
 
-    <h2>Giro punti vendita</h2>
+    <button class="primary full"
+            onclick="openNearbyMaps()">
 
-    <p>
-      Organizza le tappe della visita nella rete Network One.
-    </p>
-
-    <button class="primary"
-            style="width:100%"
-            onclick="openMaps('Trapani')">
-
-      🧭 Apri su Maps
+      📡 Cerca punti vicino a me
 
     </button>
 
   </div>
 
-  <div class="route-step">
-    <div class="route-number">1</div>
-    <div>
-      <strong>Tabaccheria Grimaudo</strong><br>
-      <small>Trapani</small>
-    </div>
+
+  <div class="card">
+
+    <h2>🔎 Cerca una città</h2>
+
+    <input id="radarCity"
+           type="text"
+           placeholder="Es. Trapani">
+
+    <button class="primary full"
+            onclick="radarCitySearch()">
+
+      🗺️ Cerca punti nella città
+
+    </button>
+
   </div>
 
-  <div class="route-step">
-    <div class="route-number">2</div>
-    <div>
-      <strong>Tabaccheria Europa</strong><br>
-      <small>Trapani</small>
-    </div>
-  </div>
 
-  <div class="route-step">
-    <div class="route-number">3</div>
-    <div>
-      <strong>Il Tabacco Croce Pietro</strong><br>
-      <small>Trapani</small>
-    </div>
-  </div>
+  <div class="info">
 
-  <div class="route-step">
-    <div class="route-number">4</div>
-    <div>
-      <strong>Torre Adelaide</strong><br>
-      <small>Trapani</small>
-    </div>
-  </div>
+    Google Maps viene utilizzato per mostrare i risultati
+    presenti realmente nella zona cercata.
 
-  <div class="route-step">
-    <div class="route-number">5</div>
-    <div>
-      <strong>Punto vendita centrale</strong><br>
-      <small>Trapani</small>
-    </div>
   </div>
 
 </section>
 
 
-<!-- PROFILO -->
+<!-- ================= PROFILO ================= -->
 
 <section id="profilo">
 
   <h1>Profilo</h1>
+
 
   <div class="card">
 
     <h2>Network One</h2>
 
     <div class="report-row">
-      <span>Zona</span>
-      <span class="report-value">Trapani</span>
+      <span>Zona attuale</span>
+      <span class="report-value"
+            id="profileCity">
+        Trapani
+      </span>
     </div>
 
     <div class="report-row">
-      <span>Punti vendita</span>
-      <span class="report-value">5</span>
+      <span>Punti salvati</span>
+      <span class="report-value"
+            id="profilePoints">
+        0
+      </span>
     </div>
 
     <div class="report-row">
-      <span>Stato rete</span>
-      <span class="report-value">ONLINE</span>
+      <span>Attività</span>
+      <span class="report-value"
+            id="profileActivities">
+        0
+      </span>
     </div>
 
   </div>
 
+
   <div class="notice">
-    Area personale per la gestione della rete commerciale.
+
+    📱 I dati vengono salvati localmente nel browser
+    del telefono.
+
   </div>
 
 </section>
 
 
-<!-- REPORT -->
+<!-- ================= REPORT ================= -->
 
 <section id="report">
 
   <h1>Report</h1>
+
 
   <div class="card">
 
     <h2>Situazione oggi</h2>
 
     <div class="report-row">
-      <span>Chiamate</span>
-      <span class="report-value" id="reportCalls">0</span>
+      <span>📞 Chiamate</span>
+      <span class="report-value"
+            id="reportCalls">
+        0
+      </span>
     </div>
 
     <div class="report-row">
-      <span>Visite</span>
-      <span class="report-value" id="reportVisits">0</span>
+      <span>🏪 Visite</span>
+      <span class="report-value"
+            id="reportVisits">
+        0
+      </span>
     </div>
 
     <div class="report-row">
-      <span>Richiami</span>
-      <span class="report-value" id="reportCallbacks">0</span>
+      <span>🔄 Richiami</span>
+      <span class="report-value"
+            id="reportCallbacks">
+        0
+      </span>
     </div>
 
     <div class="report-row">
-      <span>Appuntamenti</span>
-      <span class="report-value" id="reportAppointments">0</span>
+      <span>📅 Appuntamenti</span>
+      <span class="report-value"
+            id="reportAppointments">
+        0
+      </span>
     </div>
 
   </div>
 
+
   <div class="card">
 
-    <h2>Stato rete</h2>
+    <h2>🎯 Target</h2>
 
-    <span class="online">
-      RETE ONLINE
-    </span>
+    <div class="report-row">
+      <span>TOP target</span>
+      <span class="report-value"
+            id="reportTargets">
+        0
+      </span>
+    </div>
 
   </div>
 
 </section>
 
+
 </main>
 
 
-<!-- NAV -->
+<!-- ================= NAV ================= -->
 
 <nav>
 
@@ -1165,72 +1313,121 @@ nav button.active{
 </nav>
 
 
-<div id="toast" class="toast"></div>
+<div id="toast"
+     class="toast">
+</div>
 
 
 <script>
 
-/* =========================
-   DATI LOCALI
-========================= */
+
+/* =====================================================
+   DATI
+===================================================== */
 
 let activities =
-  JSON.parse(localStorage.getItem("networkOneActivities")) || [];
+  JSON.parse(
+    localStorage.getItem("networkOneActivities") || "[]"
+  );
 
-let currentFilter = "all";
+
+let points =
+  JSON.parse(
+    localStorage.getItem("networkOnePoints") || "[]"
+  );
 
 
-/* =========================
+let selectedCity =
+  localStorage.getItem("networkOneCity") || "Trapani";
+
+
+let pointFilter = "all";
+
+
+/* =====================================================
    NAVIGAZIONE
-========================= */
+===================================================== */
 
 function showSection(id){
 
   document
     .querySelectorAll("section")
-    .forEach(s => s.classList.remove("active"));
+    .forEach(section => {
 
-  const selected =
+      section.classList.remove("active");
+
+    });
+
+
+  const section =
     document.getElementById(id);
 
-  if(selected){
-    selected.classList.add("active");
+
+  if(section){
+
+    section.classList.add("active");
+
   }
+
 
   document
     .querySelectorAll("nav button")
-    .forEach(b => b.classList.remove("active"));
+    .forEach(button => {
 
-  const navButton =
+      button.classList.remove("active");
+
+    });
+
+
+  const nav =
     document.getElementById("nav-" + id);
 
-  if(navButton){
-    navButton.classList.add("active");
+
+  if(nav){
+
+    nav.classList.add("active");
+
   }
+
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
 
+
   if(id === "giornata"){
     renderActivities();
   }
 
+
+  if(id === "percorso"){
+    renderPoints();
+  }
+
+
+  if(id === "targets"){
+    renderTargets();
+  }
+
+
   updateDashboard();
+
 }
 
 
-/* =========================
+/* =====================================================
    DATA
-========================= */
+===================================================== */
 
 function today(){
 
   const d = new Date();
 
-  return d.getFullYear() + "-" +
-    String(d.getMonth()+1).padStart(2,"0") + "-" +
+  return d.getFullYear() +
+    "-" +
+    String(d.getMonth()+1).padStart(2,"0") +
+    "-" +
     String(d.getDate()).padStart(2,"0");
 
 }
@@ -1240,25 +1437,879 @@ function formatDate(date){
 
   if(!date) return "";
 
-  const parts =
+  const p =
     date.split("-");
 
-  return parts[2] + "/" +
-         parts[1] + "/" +
-         parts[0];
+  return p[2] + "/" +
+         p[1] + "/" +
+         p[0];
 
 }
 
 
-/* =========================
-   FORM
-========================= */
+/* =====================================================
+   CITTÀ
+===================================================== */
+
+function selectCity(){
+
+  const input =
+    document
+      .getElementById("cityInput")
+      .value
+      .trim();
+
+
+  if(!input){
+
+    showToast("Inserisci una città.");
+
+    return;
+
+  }
+
+
+  selectedCity = input;
+
+  localStorage.setItem(
+    "networkOneCity",
+    selectedCity
+  );
+
+
+  document.getElementById(
+    "selectedCity"
+  ).textContent = selectedCity;
+
+
+  document.getElementById(
+    "targetCity"
+  ).textContent = selectedCity;
+
+
+  document.getElementById(
+    "homeCity"
+  ).textContent = selectedCity;
+
+
+  document.getElementById(
+    "profileCity"
+  ).textContent = selectedCity;
+
+
+  renderPoints();
+
+  renderTargets();
+
+  showToast(
+    "Zona impostata: " + selectedCity
+  );
+
+}
+
+
+function searchGoogleMaps(){
+
+  const city =
+    selectedCity || "Trapani";
+
+
+  const query =
+    "tabaccherie e punti vendita, " +
+    city;
+
+
+  const url =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(query);
+
+
+  window.location.href = url;
+
+}
+
+
+function openNearbyMaps(){
+
+  const query =
+    "tabaccherie e punti vendita vicino a me";
+
+
+  const url =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(query);
+
+
+  window.location.href = url;
+
+}
+
+
+function radarCitySearch(){
+
+  const city =
+    document
+      .getElementById("radarCity")
+      .value
+      .trim();
+
+
+  if(!city){
+
+    showToast("Inserisci una città.");
+
+    return;
+
+  }
+
+
+  selectedCity = city;
+
+
+  localStorage.setItem(
+    "networkOneCity",
+    selectedCity
+  );
+
+
+  document.getElementById(
+    "cityInput"
+  ).value = city;
+
+
+  document.getElementById(
+    "selectedCity"
+  ).textContent = city;
+
+
+  document.getElementById(
+    "targetCity"
+  ).textContent = city;
+
+
+  document.getElementById(
+    "homeCity"
+  ).textContent = city;
+
+
+  const query =
+    "tabaccherie e punti vendita, " +
+    city;
+
+
+  const url =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(query);
+
+
+  window.location.href = url;
+
+}
+
+
+/* =====================================================
+   PUNTI
+===================================================== */
+
+function addPoint(){
+
+  const name =
+    document
+      .getElementById("newPointName")
+      .value
+      .trim();
+
+
+  if(!name){
+
+    showToast(
+      "Inserisci il nome del punto vendita."
+    );
+
+    return;
+
+  }
+
+
+  const address =
+    document
+      .getElementById("newPointAddress")
+      .value
+      .trim();
+
+
+  const phone =
+    document
+      .getElementById("newPointPhone")
+      .value
+      .trim();
+
+
+  const priority =
+    Number(
+      document
+        .getElementById("newPointPriority")
+        .value
+    );
+
+
+  const notes =
+    document
+      .getElementById("newPointNotes")
+      .value
+      .trim();
+
+
+  const point = {
+
+    id:Date.now(),
+
+    name:name,
+
+    city:selectedCity,
+
+    address:address,
+
+    phone:phone,
+
+    priority:priority,
+
+    notes:notes,
+
+    selected:false,
+
+    visited:false,
+
+    created:Date.now()
+
+  };
+
+
+  points.push(point);
+
+
+  savePoints();
+
+  clearPointForm();
+
+  renderPoints();
+
+  renderTargets();
+
+  updateDashboard();
+
+
+  showToast(
+    "Punto aggiunto a " + selectedCity
+  );
+
+}
+
+
+function clearPointForm(){
+
+  document.getElementById(
+    "newPointName"
+  ).value = "";
+
+  document.getElementById(
+    "newPointAddress"
+  ).value = "";
+
+  document.getElementById(
+    "newPointPhone"
+  ).value = "";
+
+  document.getElementById(
+    "newPointPriority"
+  ).value = "1";
+
+  document.getElementById(
+    "newPointNotes"
+  ).value = "";
+
+}
+
+
+function savePoints(){
+
+  localStorage.setItem(
+    "networkOnePoints",
+    JSON.stringify(points)
+  );
+
+}
+
+
+function pointScore(point){
+
+  let score = 50;
+
+
+  score +=
+    Number(point.priority || 1) * 15;
+
+
+  if(point.phone){
+    score += 10;
+  }
+
+
+  if(point.notes){
+    score += 5;
+  }
+
+
+  if(point.selected){
+    score += 10;
+  }
+
+
+  if(point.visited){
+    score -= 30;
+  }
+
+
+  return Math.max(
+    0,
+    Math.min(100,score)
+  );
+
+}
+
+
+/* =====================================================
+   ELENCO PUNTI
+===================================================== */
+
+function renderPoints(){
+
+  const container =
+    document.getElementById(
+      "cityPoints"
+    );
+
+
+  if(!container) return;
+
+
+  let cityPoints =
+    points.filter(
+      point =>
+        point.city.toLowerCase() ===
+        selectedCity.toLowerCase()
+    );
+
+
+  if(pointFilter === "visit"){
+
+    cityPoints =
+      cityPoints.filter(
+        point => !point.visited
+      );
+
+  }
+
+
+  if(pointFilter === "selected"){
+
+    cityPoints =
+      cityPoints.filter(
+        point => point.selected
+      );
+
+  }
+
+
+  cityPoints.sort(
+    (a,b) =>
+      pointScore(b) -
+      pointScore(a)
+  );
+
+
+  if(cityPoints.length === 0){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        📍 Nessun punto salvato per
+        <strong>${escapeHTML(selectedCity)}</strong>.
+
+        <br><br>
+
+        Apri Google Maps, scegli i punti
+        interessanti e aggiungili qui.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    cityPoints.map(point => {
+
+      const score =
+        pointScore(point);
+
+
+      return `
+
+        <div class="point
+          ${point.selected ? "target" : ""}">
+
+          <div class="point-top">
+
+            <div>
+
+              <div class="point-name">
+
+                ${escapeHTML(point.name)}
+
+              </div>
+
+              <div class="point-city">
+
+                📍 ${escapeHTML(point.city)}
+
+              </div>
+
+            </div>
+
+            <div class="score">
+
+              ${score}/100
+
+            </div>
+
+          </div>
+
+
+          <div class="point-info">
+
+            ${point.address
+              ? "🏠 " +
+                escapeHTML(point.address) +
+                "<br>"
+              : ""}
+
+            ${point.phone
+              ? "📞 " +
+                escapeHTML(point.phone) +
+                "<br>"
+              : ""}
+
+            ${point.notes
+              ? "📝 " +
+                escapeHTML(point.notes)
+              : ""}
+
+          </div>
+
+
+          <div class="point-actions">
+
+            <button class="primary"
+              onclick="openPointMaps(${point.id})">
+
+              📍 Maps
+
+            </button>
+
+
+            <button
+              class="${point.selected
+                ? "success"
+                : "secondary"}"
+              onclick="toggleSelected(${point.id})">
+
+              ${point.selected
+                ? "✅ Selezionato"
+                : "🎯 Seleziona"}
+
+            </button>
+
+
+            ${point.phone ? `
+
+              <button class="success"
+                onclick="callPoint(${point.id})">
+
+                📞 Chiama
+
+              </button>
+
+            ` : `
+
+              <button class="secondary"
+                onclick="addPointActivity(${point.id})">
+
+                📅 Agenda
+
+              </button>
+
+            `}
+
+
+            <button class="danger"
+              onclick="deletePoint(${point.id})">
+
+              🗑️ Elimina
+
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+function setPointFilter(filter,button){
+
+  pointFilter = filter;
+
+
+  document
+    .querySelectorAll("#percorso .filterbar button")
+    .forEach(b =>
+      b.classList.remove("selected")
+    );
+
+
+  button.classList.add("selected");
+
+
+  renderPoints();
+
+}
+
+
+function toggleSelected(id){
+
+  const point =
+    points.find(
+      p => p.id === id
+    );
+
+
+  if(!point) return;
+
+
+  point.selected =
+    !point.selected;
+
+
+  savePoints();
+
+  renderPoints();
+
+  renderTargets();
+
+  updateDashboard();
+
+
+  showToast(
+    point.selected
+      ? "Punto aggiunto ai target."
+      : "Punto rimosso dai target."
+  );
+
+}
+
+
+function deletePoint(id){
+
+  if(!confirm(
+    "Eliminare questo punto?"
+  )) return;
+
+
+  points =
+    points.filter(
+      p => p.id !== id
+    );
+
+
+  savePoints();
+
+  renderPoints();
+
+  renderTargets();
+
+  updateDashboard();
+
+}
+
+
+function openPointMaps(id){
+
+  const point =
+    points.find(
+      p => p.id === id
+    );
+
+
+  if(!point) return;
+
+
+  const query =
+    point.name +
+    ", " +
+    point.city +
+    (point.address
+      ? ", " + point.address
+      : "");
+
+
+  openMaps(query);
+
+}
+
+
+function callPoint(id){
+
+  const point =
+    points.find(
+      p => p.id === id
+    );
+
+
+  if(!point || !point.phone){
+
+    showToast(
+      "Numero di telefono non disponibile."
+    );
+
+    return;
+
+  }
+
+
+  window.location.href =
+    "tel:" + point.phone;
+
+}
+
+
+/* =====================================================
+   TOP 5
+===================================================== */
+
+function renderTargets(){
+
+  const container =
+    document.getElementById(
+      "topTargets"
+    );
+
+
+  if(!container) return;
+
+
+  let cityPoints =
+    points.filter(
+      point =>
+        point.city.toLowerCase() ===
+        selectedCity.toLowerCase()
+    );
+
+
+  cityPoints.sort(
+    (a,b) =>
+      pointScore(b) -
+      pointScore(a)
+  );
+
+
+  const top =
+    cityPoints.slice(0,5);
+
+
+  if(top.length === 0){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        🎯 Non hai ancora inserito
+        punti per ${escapeHTML(selectedCity)}.
+
+        <br><br>
+
+        Vai in Percorso e aggiungi
+        i punti trovati su Google Maps.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    top.map((point,index) => `
+
+      <div class="point target">
+
+        <span class="target-label">
+
+          #${index + 1} TOP TARGET
+
+        </span>
+
+
+        <div class="point-top">
+
+          <div>
+
+            <div class="point-name">
+
+              ${escapeHTML(point.name)}
+
+            </div>
+
+            <div class="point-city">
+
+              📍 ${escapeHTML(point.city)}
+
+            </div>
+
+          </div>
+
+
+          <div class="score">
+
+            ${pointScore(point)}/100
+
+          </div>
+
+        </div>
+
+
+        <div class="point-info">
+
+          ${point.address
+            ? "🏠 " +
+              escapeHTML(point.address) +
+              "<br>"
+            : ""}
+
+          ${point.phone
+            ? "📞 " +
+              escapeHTML(point.phone)
+            : ""}
+
+        </div>
+
+
+        <div class="point-actions">
+
+          <button class="primary"
+            onclick="openPointMaps(${point.id})">
+
+            📍 Maps
+
+          </button>
+
+
+          <button class="success"
+            onclick="addPointActivity(${point.id})">
+
+            📅 Agenda
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+
+/* =====================================================
+   PERCORSO
+===================================================== */
+
+function openSelectedRoute(){
+
+  const selected =
+    points.filter(
+      point =>
+        point.selected &&
+        point.city.toLowerCase() ===
+        selectedCity.toLowerCase()
+    );
+
+
+  if(selected.length === 0){
+
+    showToast(
+      "Seleziona almeno un punto."
+    );
+
+    return;
+
+  }
+
+
+  const destinations =
+    selected.map(
+      point =>
+        point.name +
+        ", " +
+        point.city +
+        (point.address
+          ? ", " + point.address
+          : "")
+    );
+
+
+  const destination =
+    destinations.join(" to ");
+
+
+  const url =
+    "https://www.google.com/maps/dir/?api=1&destination=" +
+    encodeURIComponent(
+      destinations[destinations.length - 1]
+    ) +
+    "&waypoints=" +
+    encodeURIComponent(
+      destinations
+        .slice(0,-1)
+        .join("|")
+    );
+
+
+  window.location.href = url;
+
+}
+
+
+/* =====================================================
+   AGENDA
+===================================================== */
 
 function setActivityType(type){
 
   document.getElementById(
     "activityType"
   ).value = type;
+
 
   document.getElementById(
     "clientName"
@@ -1267,34 +2318,48 @@ function setActivityType(type){
 }
 
 
-function addQuickActivity(name,city){
+function addPointActivity(id){
+
+  const point =
+    points.find(
+      p => p.id === id
+    );
+
+
+  if(!point) return;
+
 
   showSection("giornata");
 
+
   document.getElementById(
     "clientName"
-  ).value = name;
+  ).value = point.name;
+
 
   document.getElementById(
     "clientCity"
-  ).value = city;
+  ).value = point.city;
+
 
   document.getElementById(
-    "activityDate"
-  ).value = today();
+    "clientPhone"
+  ).value = point.phone || "";
+
 
   document.getElementById(
     "activityType"
   ).value = "Visita";
 
+
+  document.getElementById(
+    "activityDate"
+  ).value = today();
+
+
   document.getElementById(
     "activityNotes"
-  ).value = "";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  ).value = point.notes || "";
 
 }
 
@@ -1302,9 +2367,11 @@ function addQuickActivity(name,city){
 function saveActivity(){
 
   const name =
-    document.getElementById(
-      "clientName"
-    ).value.trim();
+    document
+      .getElementById("clientName")
+      .value
+      .trim();
+
 
   if(!name){
 
@@ -1319,44 +2386,48 @@ function saveActivity(){
 
   const activity = {
 
-    id: Date.now(),
+    id:Date.now(),
 
     name:name,
 
     city:
-      document.getElementById(
-        "clientCity"
-      ).value.trim(),
+      document
+        .getElementById("clientCity")
+        .value
+        .trim(),
 
     phone:
-      document.getElementById(
-        "clientPhone"
-      ).value.trim(),
+      document
+        .getElementById("clientPhone")
+        .value
+        .trim(),
 
     type:
-      document.getElementById(
-        "activityType"
-      ).value,
+      document
+        .getElementById("activityType")
+        .value,
 
     date:
-      document.getElementById(
-        "activityDate"
-      ).value || today(),
+      document
+        .getElementById("activityDate")
+        .value ||
+      today(),
 
     time:
-      document.getElementById(
-        "activityTime"
-      ).value,
+      document
+        .getElementById("activityTime")
+        .value,
 
     priority:
-      document.getElementById(
-        "priority"
-      ).value,
+      document
+        .getElementById("priority")
+        .value,
 
     notes:
-      document.getElementById(
-        "activityNotes"
-      ).value.trim(),
+      document
+        .getElementById("activityNotes")
+        .value
+        .trim(),
 
     done:false
 
@@ -1365,13 +2436,19 @@ function saveActivity(){
 
   activities.push(activity);
 
-  saveActivities();
 
-  clearForm();
+  localStorage.setItem(
+    "networkOneActivities",
+    JSON.stringify(activities)
+  );
+
+
+  clearActivityForm();
 
   renderActivities();
 
   updateDashboard();
+
 
   showToast(
     "Attività salvata."
@@ -1380,7 +2457,7 @@ function saveActivity(){
 }
 
 
-function clearForm(){
+function clearActivityForm(){
 
   document.getElementById(
     "clientName"
@@ -1417,20 +2494,6 @@ function clearForm(){
 }
 
 
-function saveActivities(){
-
-  localStorage.setItem(
-    "networkOneActivities",
-    JSON.stringify(activities)
-  );
-
-}
-
-
-/* =========================
-   VISUALIZZA ATTIVITÀ
-========================= */
-
 function renderActivities(){
 
   const container =
@@ -1438,22 +2501,38 @@ function renderActivities(){
       "todayActivities"
     );
 
-  const todayActivities =
+
+  if(!container) return;
+
+
+  const list =
     activities
-      .filter(a => a.date === today())
-      .sort((a,b) =>
-        (a.time || "99:99")
-        .localeCompare(b.time || "99:99")
+      .filter(
+        a => a.date === today()
+      )
+      .sort(
+        (a,b) =>
+          (a.time || "99:99")
+          .localeCompare(
+            b.time || "99:99"
+          )
       );
 
 
-  if(todayActivities.length === 0){
+  if(list.length === 0){
 
     container.innerHTML = `
+
       <div class="empty">
-        📅 Nessuna attività programmata per oggi.<br><br>
-        Aggiungi il primo cliente qui sopra.
+
+        📅 Nessuna attività programmata oggi.
+
+        <br><br>
+
+        Inserisci il primo cliente sopra.
+
       </div>
+
     `;
 
     return;
@@ -1462,185 +2541,111 @@ function renderActivities(){
 
 
   container.innerHTML =
-    todayActivities.map(activity => {
+    list.map(a => `
 
-      const phoneButton =
-        activity.phone
-        ? `
-          <button class="success"
-            onclick="callClient('${escapeText(activity.phone)}')">
-            📞 Chiama
-          </button>
-        `
-        : `
-          <button class="secondary"
-            onclick="editActivity(${activity.id})">
-            ✏️ Modifica
-          </button>
-        `;
+      <div class="activity
+        ${a.done ? "done" : ""}">
 
+        <div class="activity-title">
 
-      const mapsButton =
-        activity.city
-        ? `
-          <button class="primary"
-            onclick="openMaps('${escapeText(activity.name + ", " + activity.city)}')">
-            📍 Maps
-          </button>
-        `
-        : `
-          <button class="secondary"
-            onclick="editActivity(${activity.id})">
-            ✏️ Modifica
-          </button>
-        `;
-
-
-      return `
-
-        <div class="activity ${activity.done ? "done" : ""}">
-
-          <div class="activity-top">
-
-            <div>
-
-              <div class="activity-title">
-                ${escapeText(activity.name)}
-              </div>
-
-              <span class="activity-type">
-                ${getTypeIcon(activity.type)}
-                ${escapeText(activity.type)}
-              </span>
-
-            </div>
-
-            <div>
-              ${activity.priority === "Top"
-                ? "🚀"
-                : activity.priority === "Alta"
-                ? "🔥"
-                : ""}
-            </div>
-
-          </div>
-
-
-          <div class="activity-info">
-
-            ${activity.city
-              ? "📍 " + escapeText(activity.city) + "<br>"
-              : ""}
-
-            ${activity.time
-              ? "🕐 " + escapeText(activity.time) + "<br>"
-              : ""}
-
-            ${activity.phone
-              ? "📞 " + escapeText(activity.phone) + "<br>"
-              : ""}
-
-            ${activity.notes
-              ? "📝 " + escapeText(activity.notes)
-              : ""}
-
-          </div>
-
-
-          <div class="activity-actions">
-
-            ${phoneButton}
-
-            ${mapsButton}
-
-            <button
-              class="${activity.done ? "secondary" : "success"}"
-              onclick="toggleActivity(${activity.id})">
-
-              ${activity.done
-                ? "↩️ Da fare"
-                : "✅ Fatto"}
-
-            </button>
-
-            <button
-              class="danger"
-              onclick="deleteActivity(${activity.id})">
-
-              🗑️ Elimina
-
-            </button>
-
-          </div>
+          ${escapeHTML(a.name)}
 
         </div>
 
-      `;
 
-    }).join("");
+        <span class="activity-type">
 
-}
+          ${typeIcon(a.type)}
+          ${escapeHTML(a.type)}
 
-
-/* =========================
-   MODIFICA
-========================= */
-
-function editActivity(id){
-
-  const a =
-    activities.find(
-      x => x.id === id
-    );
-
-  if(!a) return;
+        </span>
 
 
-  showSection("giornata");
+        <div class="activity-info">
 
-  document.getElementById(
-    "clientName"
-  ).value = a.name;
+          ${a.city
+            ? "📍 " +
+              escapeHTML(a.city) +
+              "<br>"
+            : ""}
 
-  document.getElementById(
-    "clientCity"
-  ).value = a.city;
+          ${a.time
+            ? "🕐 " +
+              escapeHTML(a.time) +
+              "<br>"
+            : ""}
 
-  document.getElementById(
-    "clientPhone"
-  ).value = a.phone;
+          ${a.phone
+            ? "📞 " +
+              escapeHTML(a.phone) +
+              "<br>"
+            : ""}
 
-  document.getElementById(
-    "activityType"
-  ).value = a.type;
+          ${a.notes
+            ? "📝 " +
+              escapeHTML(a.notes)
+            : ""}
 
-  document.getElementById(
-    "activityDate"
-  ).value = a.date;
-
-  document.getElementById(
-    "activityTime"
-  ).value = a.time;
-
-  document.getElementById(
-    "priority"
-  ).value = a.priority;
-
-  document.getElementById(
-    "activityNotes"
-  ).value = a.notes;
+        </div>
 
 
-  activities =
-    activities.filter(
-      x => x.id !== id
-    );
+        <div class="activity-actions">
 
-  saveActivities();
+          ${a.phone ? `
 
-  showToast(
-    "Modifica l'attività e salvala nuovamente."
-  );
+            <button class="success"
+              onclick="callClient('${escapeAttr(a.phone)}')">
+
+              📞 Chiama
+
+            </button>
+
+          ` : `
+
+            <button class="secondary"
+              onclick="editActivity(${a.id})">
+
+              ✏️ Modifica
+
+            </button>
+
+          `}
+
+
+          ${a.city ? `
+
+            <button class="primary"
+              onclick="openMaps('${escapeAttr(a.name + ", " + a.city)}')">
+
+              📍 Maps
+
+            </button>
+
+          ` : ""}
+
+
+          <button class="success"
+            onclick="toggleActivity(${a.id})">
+
+            ${a.done
+              ? "↩️ Da fare"
+              : "✅ Fatto"}
+
+          </button>
+
+
+          <button class="danger"
+            onclick="deleteActivity(${a.id})">
+
+            🗑️ Elimina
+
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
@@ -1652,11 +2657,19 @@ function toggleActivity(id){
       x => x.id === id
     );
 
+
   if(!a) return;
 
-  a.done = !a.done;
 
-  saveActivities();
+  a.done =
+    !a.done;
+
+
+  localStorage.setItem(
+    "networkOneActivities",
+    JSON.stringify(activities)
+  );
+
 
   renderActivities();
 
@@ -1671,12 +2684,18 @@ function deleteActivity(id){
     "Vuoi eliminare questa attività?"
   )) return;
 
+
   activities =
     activities.filter(
       x => x.id !== id
     );
 
-  saveActivities();
+
+  localStorage.setItem(
+    "networkOneActivities",
+    JSON.stringify(activities)
+  );
+
 
   renderActivities();
 
@@ -1685,40 +2704,111 @@ function deleteActivity(id){
 }
 
 
-/* =========================
+function editActivity(id){
+
+  const a =
+    activities.find(
+      x => x.id === id
+    );
+
+
+  if(!a) return;
+
+
+  showSection("giornata");
+
+
+  document.getElementById(
+    "clientName"
+  ).value = a.name;
+
+
+  document.getElementById(
+    "clientCity"
+  ).value = a.city;
+
+
+  document.getElementById(
+    "clientPhone"
+  ).value = a.phone;
+
+
+  document.getElementById(
+    "activityType"
+  ).value = a.type;
+
+
+  document.getElementById(
+    "activityDate"
+  ).value = a.date;
+
+
+  document.getElementById(
+    "activityTime"
+  ).value = a.time;
+
+
+  document.getElementById(
+    "priority"
+  ).value = a.priority;
+
+
+  document.getElementById(
+    "activityNotes"
+  ).value = a.notes;
+
+
+  activities =
+    activities.filter(
+      x => x.id !== id
+    );
+
+
+  localStorage.setItem(
+    "networkOneActivities",
+    JSON.stringify(activities)
+  );
+
+
+  showToast(
+    "Modifica i dati e salva nuovamente."
+  );
+
+}
+
+
+/* =====================================================
    DASHBOARD
-========================= */
+===================================================== */
 
 function updateDashboard(){
 
-  const d = today();
-
-  const todayActivities =
+  const list =
     activities.filter(
-      a => a.date === d
+      a => a.date === today()
     );
 
 
   const calls =
-    todayActivities.filter(
+    list.filter(
       a => a.type === "Chiamata"
     ).length;
 
 
   const visits =
-    todayActivities.filter(
+    list.filter(
       a => a.type === "Visita"
     ).length;
 
 
   const callbacks =
-    todayActivities.filter(
+    list.filter(
       a => a.type === "Richiamo"
     ).length;
 
 
   const appointments =
-    todayActivities.filter(
+    list.filter(
       a => a.type === "Appuntamento"
     ).length;
 
@@ -1727,51 +2817,117 @@ function updateDashboard(){
     "callsCount"
   ).textContent = calls;
 
+
   document.getElementById(
     "visitsCount"
   ).textContent = visits;
+
 
   document.getElementById(
     "callbacksCount"
   ).textContent = callbacks;
 
+
   document.getElementById(
     "appointmentsCount"
-  ).textContent = appointments;
-
-
-  document.getElementById(
-    "targetCount"
   ).textContent =
-    todayActivities.filter(
-      a => !a.done
-    ).length;
+    appointments;
 
 
   document.getElementById(
     "reportCalls"
   ).textContent = calls;
 
+
   document.getElementById(
     "reportVisits"
   ).textContent = visits;
+
 
   document.getElementById(
     "reportCallbacks"
   ).textContent = callbacks;
 
+
   document.getElementById(
     "reportAppointments"
-  ).textContent = appointments;
+  ).textContent =
+    appointments;
+
+
+  const targetCount =
+    points.filter(
+      p =>
+        p.city.toLowerCase() ===
+        selectedCity.toLowerCase()
+    ).length;
+
+
+  document.getElementById(
+    "reportTargets"
+  ).textContent =
+    Math.min(5,targetCount);
+
+
+  document.getElementById(
+    "profilePoints"
+  ).textContent =
+    points.length;
+
+
+  document.getElementById(
+    "profileActivities"
+  ).textContent =
+    activities.length;
+
+
+  document.getElementById(
+    "homeCity"
+  ).textContent =
+    selectedCity;
+
+
+  document.getElementById(
+    "profileCity"
+  ).textContent =
+    selectedCity;
 
 }
 
 
-/* =========================
-   UTILITÀ
-========================= */
+/* =====================================================
+   GOOGLE MAPS
+===================================================== */
 
-function getTypeIcon(type){
+function openMaps(query){
+
+  const url =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(query);
+
+
+  window.location.href = url;
+
+}
+
+
+/* =====================================================
+   TELEFONO
+===================================================== */
+
+function callClient(phone){
+
+  window.location.href =
+    "tel:" + phone;
+
+}
+
+
+/* =====================================================
+   UTILITÀ
+===================================================== */
+
+function typeIcon(type){
 
   if(type === "Chiamata")
     return "📞";
@@ -1790,21 +2946,24 @@ function getTypeIcon(type){
 }
 
 
-function callClient(phone){
+function escapeHTML(text){
 
-  window.location.href =
-    "tel:" + phone;
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-function openMaps(query){
+function escapeAttr(text){
 
-  const url =
-    "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(query);
-
-  window.location.href = url;
+  return String(text || "")
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,"&quot;");
 
 }
 
@@ -1812,113 +2971,89 @@ function openMaps(query){
 function showToast(message){
 
   const toast =
-    document.getElementById("toast");
+    document.getElementById(
+      "toast"
+    );
 
-  toast.textContent = message;
 
-  toast.style.display = "block";
+  toast.textContent =
+    message;
+
+
+  toast.style.display =
+    "block";
+
 
   clearTimeout(
     window.toastTimer
   );
 
+
   window.toastTimer =
-    setTimeout(() => {
+    setTimeout(
+      () => {
 
-      toast.style.display = "none";
+        toast.style.display =
+          "none";
 
-    },2500);
-
-}
-
-
-function escapeText(text){
-
-  return String(text || "")
-    .replace(/'/g,"\\'")
-    .replace(/"/g,"&quot;");
-
-}
-
-
-/* =========================
-   RADAR
-========================= */
-
-function setFilter(filter,button){
-
-  currentFilter = filter;
-
-  document
-    .querySelectorAll(".filterbar button")
-    .forEach(b =>
-      b.classList.remove("selected")
+      },
+      2600
     );
 
-  button.classList.add("selected");
-
-  filterPoints();
-
 }
 
 
-function filterPoints(){
-
-  const value =
-    document.getElementById(
-      "search"
-    ).value
-    .toLowerCase()
-    .trim();
-
-  document
-    .querySelectorAll(".point")
-    .forEach(point => {
-
-      const name =
-        point.dataset.name
-          .toLowerCase();
-
-      const status =
-        point.dataset.status;
-
-      const textMatch =
-        name.includes(value);
-
-      const filterMatch =
-        currentFilter === "all" ||
-        status === currentFilter;
-
-      point.style.display =
-        textMatch && filterMatch
-        ? ""
-        : "none";
-
-    });
-
-}
-
-
-/* =========================
+/* =====================================================
    AVVIO
-========================= */
+===================================================== */
 
 document.addEventListener(
   "DOMContentLoaded",
   function(){
 
     document.getElementById(
-      "activityDate"
-    ).value = today();
+      "cityInput"
+    ).value =
+      selectedCity;
+
 
     document.getElementById(
-      "todayLabel"
+      "selectedCity"
     ).textContent =
-      formatDate(today());
+      selectedCity;
 
-    updateDashboard();
+
+    document.getElementById(
+      "targetCity"
+    ).textContent =
+      selectedCity;
+
+
+    document.getElementById(
+      "homeCity"
+    ).textContent =
+      selectedCity;
+
+
+    document.getElementById(
+      "profileCity"
+    ).textContent =
+      selectedCity;
+
+
+    document.getElementById(
+      "activityDate"
+    ).value =
+      today();
+
 
     renderActivities();
+
+    renderPoints();
+
+    renderTargets();
+
+    updateDashboard();
 
   }
 );
