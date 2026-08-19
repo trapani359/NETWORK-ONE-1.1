@@ -8,41 +8,22 @@
 
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-
-html,body{
-margin:0;padding:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-background:#f5f7fa;color:#151923
-}
-
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f5f7fa;color:#151923}
 body{padding-bottom:100px}
-
-header{
-background:#111827;color:#fff;
-padding:23px 20px 25px
-}
-
+header{background:#111827;color:#fff;padding:23px 20px 25px}
 .brand{font-size:27px;font-weight:800}
 .subtitle{margin-top:5px;color:#c8ced8;font-size:16px}
-
-main{
-max-width:760px;margin:auto;
-padding:25px 18px 110px
-}
-
+main{max-width:760px;margin:auto;padding:25px 18px 110px}
 section{display:none}
 section.active{display:block}
-
 h1{font-size:40px;margin:0 0 14px;letter-spacing:-1px}
 h2{font-size:23px;margin:0 0 16px}
 h3{font-size:19px;margin:0 0 8px}
 p{font-size:18px;line-height:1.45;margin:0 0 20px}
 
 .card{
-background:#fff;border-radius:22px;padding:22px;
-margin-bottom:18px;
-box-shadow:0 4px 18px rgba(20,30,50,.06);
-border:1px solid #edf0f4
+background:#fff;border-radius:22px;padding:22px;margin-bottom:18px;
+box-shadow:0 4px 18px rgba(20,30,50,.06);border:1px solid #edf0f4
 }
 
 .goal{
@@ -54,13 +35,12 @@ padding:23px;margin-bottom:18px
 .goal-value{font-size:42px;font-weight:800;margin:4px 0 12px}
 
 .progress{
-height:13px;background:#374151;
-border-radius:20px;overflow:hidden
+height:13px;background:#374151;border-radius:20px;overflow:hidden
 }
 
 .progress span{
-display:block;height:100%;width:35%;
-background:#fff;border-radius:20px
+display:block;height:100%;width:0%;
+background:#fff;border-radius:20px;transition:width .4s ease
 }
 
 .goal-info{margin-top:11px;color:#d1d5db;font-size:15px}
@@ -71,22 +51,16 @@ gap:12px;margin-bottom:18px
 }
 
 .stat{
-background:#fff;border-radius:20px;padding:20px 18px;
-min-height:120px;
-box-shadow:0 4px 18px rgba(20,30,50,.05);
-border:1px solid #e8ebf0
+background:#fff;border-radius:20px;padding:20px 18px;min-height:120px;
+box-shadow:0 4px 18px rgba(20,30,50,.05);border:1px solid #e8ebf0
 }
 
-.stat strong{
-display:block;font-size:37px;line-height:1.05;margin-bottom:10px
-}
-
+.stat strong{display:block;font-size:37px;line-height:1.05;margin-bottom:10px}
 .stat span{font-size:16px;color:#687184}
 
 button{
-border:0;font-family:inherit;font-size:16px;
-font-weight:700;border-radius:15px;
-padding:16px 13px;cursor:pointer
+border:0;font-family:inherit;font-size:16px;font-weight:700;
+border-radius:15px;padding:16px 13px;cursor:pointer
 }
 
 .primary{background:#3563e9;color:#fff}
@@ -96,14 +70,9 @@ padding:16px 13px;cursor:pointer
 .warning{background:#fff8e6;color:#765b13}
 .full{width:100%}
 
-.actions{
-display:grid;grid-template-columns:1fr 1fr;gap:10px
-}
-
 input,select,textarea{
-width:100%;border:1px solid #dfe4eb;
-background:#fff;border-radius:14px;
-padding:14px;font-family:inherit;
+width:100%;border:1px solid #dfe4eb;background:#fff;
+border-radius:14px;padding:14px;font-family:inherit;
 font-size:16px;outline:none;margin-bottom:13px
 }
 
@@ -114,39 +83,30 @@ display:block;font-size:14px;font-weight:700;
 color:#475467;margin-bottom:6px
 }
 
-input:focus,select:focus,textarea:focus{
-border-color:#3563e9
-}
-
-/* RADAR */
+input:focus,select:focus,textarea:focus{border-color:#3563e9}
 
 .gps-card{
-background:#111827;color:#fff;
-border-radius:22px;padding:22px;
-margin-bottom:18px
+background:#111827;color:#fff;border-radius:22px;
+padding:22px;margin-bottom:18px
 }
 
 .gps-status{
-display:flex;align-items:center;gap:10px;
-margin-bottom:15px
+display:flex;align-items:center;gap:10px;margin-bottom:15px
 }
 
 .gps-dot{
-width:12px;height:12px;border-radius:50%;
-background:#9ca3af
+width:12px;height:12px;border-radius:50%;background:#9ca3af
 }
 
 .gps-dot.active{background:#22c55e}
 
 .distance-grid{
-display:grid;
-grid-template-columns:repeat(5,1fr);
+display:grid;grid-template-columns:repeat(5,1fr);
 gap:6px;margin-top:12px
 }
 
 .distance-grid button{
-padding:11px 4px;font-size:12px;
-background:#374151;color:#fff
+padding:11px 4px;font-size:12px;background:#374151;color:#fff
 }
 
 .distance-grid button.selected{
@@ -154,15 +114,12 @@ background:#fff;color:#111827
 }
 
 .category-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
+display:grid;grid-template-columns:1fr 1fr;
 gap:9px;margin-top:14px
 }
 
 .category-grid button{
-text-align:left;
-background:#edf1f7;color:#283249;
-padding:15px 11px
+text-align:left;background:#edf1f7;color:#283249;padding:15px 11px
 }
 
 .category-grid button.selected{
@@ -175,72 +132,50 @@ border-radius:18px;padding:17px;margin-bottom:11px
 }
 
 .radar-result-top{
-display:flex;justify-content:space-between;
-gap:10px
+display:flex;justify-content:space-between;gap:10px
 }
 
 .radar-name{font-size:18px;font-weight:800}
+
 .radar-distance{
-background:#eaf1ff;color:#3563bd;
-border-radius:20px;padding:7px 10px;
-font-size:12px;font-weight:800;white-space:nowrap
+background:#eaf1ff;color:#3563bd;border-radius:20px;
+padding:7px 10px;font-size:12px;font-weight:800;
+white-space:nowrap
 }
 
 .radar-info{
-color:#667085;font-size:14px;
-line-height:1.5;margin-top:9px
+color:#667085;font-size:14px;line-height:1.5;margin-top:9px
 }
 
 .radar-actions{
-display:grid;grid-template-columns:1fr 1fr;
-gap:8px;margin-top:12px
+display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px
 }
 
-.radar-actions button{
-padding:11px 8px;font-size:13px
-}
+.radar-actions button{padding:11px 8px;font-size:13px}
 
 .city-box{
-display:grid;
-grid-template-columns:1fr auto;
-gap:9px
+display:grid;grid-template-columns:1fr auto;gap:9px
 }
 
-.location-title{
-font-size:13px;color:#667085;
-margin-bottom:4px
-}
-
-.location-name{
-font-size:28px;font-weight:800
-}
+.location-title{font-size:13px;color:#667085;margin-bottom:4px}
+.location-name{font-size:28px;font-weight:800}
 
 .map-search{
-background:#3563e9;color:#fff;
-border-radius:18px;padding:20px;
-margin-top:15px
+background:#3563e9;color:#fff;border-radius:18px;padding:20px;margin-top:15px
 }
 
-.map-search button{
-background:#fff;color:#274dbb;width:100%
-}
-
-/* PUNTI */
+.map-search button{background:#fff;color:#274dbb;width:100%}
 
 .filterbar{
-display:flex;gap:8px;overflow:auto;
-margin-bottom:14px
+display:flex;gap:8px;overflow:auto;margin-bottom:14px
 }
 
 .filterbar button{
-white-space:nowrap;
-padding:10px 14px;font-size:14px;
+white-space:nowrap;padding:10px 14px;font-size:14px;
 background:#edf1f7;color:#344054
 }
 
-.filterbar button.selected{
-background:#3563e9;color:#fff
-}
+.filterbar button.selected{background:#3563e9;color:#fff}
 
 .point{
 background:#fff;border:1px solid #e3e7ed;
@@ -254,48 +189,35 @@ display:flex;justify-content:space-between;gap:10px
 }
 
 .point-name{font-size:19px;font-weight:800}
-
-.point-city{
-color:#667085;margin-top:5px;font-size:14px
-}
+.point-city{color:#667085;margin-top:5px;font-size:14px}
 
 .category-badge{
-display:inline-block;margin-top:9px;
-padding:6px 10px;border-radius:15px;
-background:#edf1ff;color:#3563bd;
+display:inline-block;margin-top:9px;padding:6px 10px;
+border-radius:15px;background:#edf1ff;color:#3563bd;
 font-size:12px;font-weight:800
 }
 
 .score{
-background:#eaf1ff;color:#3563bd;
-border-radius:20px;padding:7px 10px;
-font-size:13px;font-weight:800;
+background:#eaf1ff;color:#3563bd;border-radius:20px;
+padding:7px 10px;font-size:13px;font-weight:800;
 white-space:nowrap;height:max-content
 }
 
 .point-info{
-margin-top:12px;color:#667085;
-font-size:14px;line-height:1.5
+margin-top:12px;color:#667085;font-size:14px;line-height:1.5
 }
 
 .point-actions{
-display:grid;grid-template-columns:1fr 1fr;
-gap:8px;margin-top:13px
+display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px
 }
 
-.point-actions button{
-padding:11px 8px;font-size:13px
-}
+.point-actions button{padding:11px 8px;font-size:13px}
 
 .target-label{
-display:inline-block;
-background:#3563e9;color:#fff;
-border-radius:20px;padding:6px 10px;
-font-size:12px;font-weight:800;
-margin-bottom:9px
+display:inline-block;background:#3563e9;color:#fff;
+border-radius:20px;padding:6px 10px;font-size:12px;
+font-weight:800;margin-bottom:9px
 }
-
-/* AGENDA */
 
 .quick-grid{
 display:grid;grid-template-columns:repeat(3,1fr);
@@ -310,19 +232,16 @@ border-radius:18px;padding:17px;margin-bottom:12px
 }
 
 .activity.done{opacity:.55}
-
 .activity-title{font-size:19px;font-weight:800}
 
 .activity-type{
-display:inline-block;margin-top:7px;
-padding:6px 10px;background:#edf1ff;
-color:#3563bd;border-radius:15px;
+display:inline-block;margin-top:7px;padding:6px 10px;
+background:#edf1ff;color:#3563bd;border-radius:15px;
 font-size:12px;font-weight:800
 }
 
 .activity-info{
-margin-top:11px;color:#667085;
-line-height:1.55;font-size:15px
+margin-top:11px;color:#667085;line-height:1.55;font-size:15px
 }
 
 .activity-actions{
@@ -330,87 +249,66 @@ display:grid;grid-template-columns:1fr 1fr;
 gap:8px;margin-top:13px
 }
 
-.activity-actions button{
-padding:11px 8px;font-size:13px
-}
-
-/* PERCORSO */
+.activity-actions button{padding:11px 8px;font-size:13px}
 
 .route-step{
-display:flex;align-items:center;gap:12px;
-background:#fff;border:1px solid #e3e7ed;
-border-radius:17px;padding:15px;margin-bottom:10px
+display:flex;align-items:center;gap:12px;background:#fff;
+border:1px solid #e3e7ed;border-radius:17px;padding:15px;margin-bottom:10px
 }
 
 .route-number{
 width:38px;height:38px;border-radius:50%;
-background:#eaf1ff;color:#3563bd;
-display:flex;align-items:center;
-justify-content:center;font-weight:800;flex:none
+background:#eaf1ff;color:#3563bd;display:flex;
+align-items:center;justify-content:center;font-weight:800;flex:none
 }
 
 .route-text{flex:1}
 
-/* REPORT */
-
 .report-row{
-display:flex;justify-content:space-between;
-gap:12px;padding:16px 0;
-border-bottom:1px solid #edf0f3
+display:flex;justify-content:space-between;gap:12px;
+padding:16px 0;border-bottom:1px solid #edf0f3
 }
 
 .report-row:last-child{border-bottom:0}
 .report-value{font-weight:800}
 
 .notice{
-background:#fff8e6;border:1px solid #f1dfaa;
-color:#624d13;border-radius:16px;
-padding:15px;line-height:1.45
+background:#fff8e6;border:1px solid #f1dfaa;color:#624d13;
+border-radius:16px;padding:15px;line-height:1.45
 }
 
 .info{
-background:#eef4ff;border:1px solid #d9e5ff;
-color:#29488f;border-radius:16px;
-padding:15px;line-height:1.45;
-margin-bottom:15px
+background:#eef4ff;border:1px solid #d9e5ff;color:#29488f;
+border-radius:16px;padding:15px;line-height:1.45;margin-bottom:15px
 }
 
 .empty{
-text-align:center;padding:28px 12px;
-color:#667085;background:#fff;
-border-radius:18px;border:1px dashed #d9dee7
+text-align:center;padding:28px 12px;color:#667085;
+background:#fff;border-radius:18px;border:1px dashed #d9dee7
 }
 
-/* NAV */
-
 nav{
-position:fixed;z-index:50;left:0;right:0;bottom:0;
-background:#fff;border-top:1px solid #dfe3e8;
-display:grid;grid-template-columns:repeat(5,1fr);
+position:fixed;z-index:50;left:0;right:0;bottom:0;background:#fff;
+border-top:1px solid #dfe3e8;display:grid;grid-template-columns:repeat(5,1fr);
 padding:8px 4px calc(8px + env(safe-area-inset-bottom));
 box-shadow:0 -4px 20px rgba(0,0,0,.05)
 }
 
 nav button{
-background:transparent;color:#687184;
-padding:7px 2px;border-radius:12px;font-size:12px
+background:transparent;color:#687184;padding:7px 2px;
+border-radius:12px;font-size:12px
 }
 
-nav button.active{
-color:#3563e9;background:#f3f6ff
-}
+nav button.active{color:#3563e9;background:#f3f6ff}
 
 .nav-icon{
-display:block;font-size:22px;
-line-height:27px;margin-bottom:4px
+display:block;font-size:22px;line-height:27px;margin-bottom:4px
 }
 
 .toast{
-display:none;position:fixed;
-left:16px;right:16px;bottom:105px;
-z-index:100;background:#111827;color:#fff;
-border-radius:16px;padding:15px;font-size:15px;
-box-shadow:0 8px 30px rgba(0,0,0,.22)
+display:none;position:fixed;left:16px;right:16px;bottom:105px;
+z-index:100;background:#111827;color:#fff;border-radius:16px;
+padding:15px;font-size:15px;box-shadow:0 8px 30px rgba(0,0,0,.22)
 }
 
 @media(max-width:420px){
@@ -432,8 +330,6 @@ h1{font-size:37px}
 
 <main>
 
-<!-- HOME -->
-
 <section id="home" class="active">
 
 <h1>Buongiorno, Claudio</h1>
@@ -442,14 +338,18 @@ h1{font-size:37px}
 
 <div class="goal">
 
-<div class="goal-label">OBIETTIVO</div>
+<div class="goal-label">🎯 OBIETTIVO ANNUALE</div>
 
-<div class="goal-value">€ 50.000</div>
+<div class="goal-value">
+<span id="pointsCompleted">0</span> / 365 PUNTI
+</div>
 
-<div class="progress"><span></span></div>
+<div class="progress">
+<span id="annualProgress"></span>
+</div>
 
 <div class="goal-info">
-€ 17.500 registrati · € 32.500 rimanenti
+<span id="pointsRemaining">365</span> punti rimanenti
 </div>
 
 </div>
@@ -482,12 +382,9 @@ h1{font-size:37px}
 
 <h2>📡 Radar</h2>
 
-<p>
-Trova i punti più vicini alla tua posizione GPS.
-</p>
+<p>Trova i punti più vicini alla tua posizione GPS.</p>
 
-<button class="primary full"
-onclick="showSection('radar')">
+<button class="primary full" onclick="showSection('radar')">
 📡 Apri Radar
 </button>
 
@@ -497,12 +394,9 @@ onclick="showSection('radar')">
 
 <h2>🎯 TOP 5</h2>
 
-<p>
-Le migliori opportunità della città selezionata.
-</p>
+<p>Le migliori opportunità della città selezionata.</p>
 
-<button class="primary full"
-onclick="showSection('targets')">
+<button class="primary full" onclick="showSection('targets')">
 🎯 Vedi TOP 5
 </button>
 
@@ -512,8 +406,7 @@ onclick="showSection('targets')">
 
 <h2>📅 La mia giornata</h2>
 
-<button class="secondary full"
-onclick="showSection('giornata')">
+<button class="secondary full" onclick="showSection('giornata')">
 Apri agenda
 </button>
 
@@ -522,15 +415,11 @@ Apri agenda
 </section>
 
 
-<!-- RADAR -->
-
 <section id="radar">
 
 <h1>Radar</h1>
 
-<p>
-📡 Cerca i punti più vicini alla tua posizione.
-</p>
+<p>📡 Cerca i punti più vicini alla tua posizione.</p>
 
 <div class="gps-card">
 
@@ -539,12 +428,9 @@ Apri agenda
 <div id="gpsDot" class="gps-dot"></div>
 
 <div>
-<strong id="gpsStatus">
-Posizione non ancora rilevata
-</strong>
+<strong id="gpsStatus">Posizione non ancora rilevata</strong>
 
-<div id="gpsCoords"
-style="font-size:12px;color:#c8ced8;margin-top:3px">
+<div id="gpsCoords" style="font-size:12px;color:#c8ced8;margin-top:3px">
 Premi "Trova la mia posizione"
 </div>
 
@@ -552,11 +438,8 @@ Premi "Trova la mia posizione"
 
 </div>
 
-<button class="primary full"
-onclick="getMyLocation()">
-
+<button class="primary full" onclick="getMyLocation()">
 📍 Trova la mia posizione
-
 </button>
 
 <div style="margin-top:18px;font-size:14px">
@@ -565,31 +448,15 @@ Raggio di ricerca
 
 <div class="distance-grid">
 
-<button onclick="setDistance(0.5,this)">
-500 m
-</button>
-
-<button class="selected"
-onclick="setDistance(1,this)">
-1 km
-</button>
-
-<button onclick="setDistance(2,this)">
-2 km
-</button>
-
-<button onclick="setDistance(5,this)">
-5 km
-</button>
-
-<button onclick="setDistance(10,this)">
-10 km
-</button>
+<button onclick="setDistance(0.5,this)">500 m</button>
+<button class="selected" onclick="setDistance(1,this)">1 km</button>
+<button onclick="setDistance(2,this)">2 km</button>
+<button onclick="setDistance(5,this)">5 km</button>
+<button onclick="setDistance(10,this)">10 km</button>
 
 </div>
 
 </div>
-
 
 <div class="card">
 
@@ -597,77 +464,38 @@ onclick="setDistance(1,this)">
 
 <div class="category-grid">
 
-<button class="selected"
-onclick="setRadarCategory('Tutti',this)">
-📍 Tutti
-</button>
-
-<button onclick="setRadarCategory('Tabaccherie',this)">
-🚬 Tabaccherie
-</button>
-
-<button onclick="setRadarCategory('Agenzie scommesse',this)">
-🎯 Agenzie
-</button>
-
-<button onclick="setRadarCategory('Corner scommesse',this)">
-🏪 Corner
-</button>
-
-<button onclick="setRadarCategory('SNAI',this)">
-🔵 SNAI
-</button>
-
-<button onclick="setRadarCategory('Sisal Matchpoint',this)">
-🟢 Sisal
-</button>
-
-<button onclick="setRadarCategory('Goldbet',this)">
-🟡 Goldbet
-</button>
-
-<button onclick="setRadarCategory('Eurobet',this)">
-🔴 Eurobet
-</button>
-
-<button onclick="setRadarCategory('Betflag',this)">
-🟠 Betflag
-</button>
-
-<button onclick="setRadarCategory('Betaland',this)">
-🔵 Betaland
-</button>
-
-<button onclick="setRadarCategory('Sale giochi VLT',this)">
-🎰 Sale giochi
-</button>
+<button class="selected" onclick="setRadarCategory('Tutti',this)">📍 Tutti</button>
+<button onclick="setRadarCategory('Tabaccherie',this)">🚬 Tabaccherie</button>
+<button onclick="setRadarCategory('Agenzie scommesse',this)">🎯 Agenzie</button>
+<button onclick="setRadarCategory('Corner scommesse',this)">🏪 Corner</button>
+<button onclick="setRadarCategory('SNAI',this)">🔵 SNAI</button>
+<button onclick="setRadarCategory('Sisal Matchpoint',this)">🟢 Sisal</button>
+<button onclick="setRadarCategory('Goldbet',this)">🟡 Goldbet</button>
+<button onclick="setRadarCategory('Eurobet',this)">🔴 Eurobet</button>
+<button onclick="setRadarCategory('Betflag',this)">🟠 Betflag</button>
+<button onclick="setRadarCategory('Betaland',this)">🔵 Betaland</button>
+<button onclick="setRadarCategory('Sale giochi VLT',this)">🎰 Sale giochi</button>
 
 </div>
 
 <br>
 
-<button class="primary full"
-onclick="searchRadarMaps()">
-
+<button class="primary full" onclick="searchRadarMaps()">
 🗺️ Cerca su Google Maps nella zona
-
 </button>
 
 </div>
 
-
 <div class="info">
 
-<strong>Come funziona il Radar:</strong><br><br>
-
-1. Attiva la posizione GPS.<br>
+<strong>Come funziona:</strong><br><br>
+1. Attiva il GPS.<br>
 2. Scegli il raggio.<br>
 3. Scegli la categoria.<br>
-4. Apri la ricerca su Google Maps.<br>
-5. Quando trovi un punto interessante, salvalo in Network One.
+4. Cerca su Google Maps.<br>
+5. Salva nell'app i punti interessanti.
 
 </div>
-
 
 <h2>📍 Punti salvati vicino a te</h2>
 
@@ -676,92 +504,43 @@ onclick="searchRadarMaps()">
 </section>
 
 
-<!-- PERCORSO / CITTÀ -->
-
 <section id="percorso">
 
 <h1>Percorso</h1>
 
-<p>
-🏙️ Questa modalità serve per pianificare una città specifica.
-</p>
+<p>🏙️ Pianifica una città specifica.</p>
 
 <div class="card">
 
-<div class="location-title">
-CITTÀ SELEZIONATA
-</div>
+<div class="location-title">CITTÀ SELEZIONATA</div>
 
-<div class="location-name"
-id="selectedCity">
-Trapani
-</div>
+<div class="location-name" id="selectedCity">Trapani</div>
 
 <br>
 
 <div class="city-box">
 
-<input id="cityInput"
-type="text"
-placeholder="Es. Marsala">
+<input id="cityInput" type="text" placeholder="Es. Marsala">
 
-<button class="primary"
-onclick="selectCity()">
-Imposta
-</button>
+<button class="primary" onclick="selectCity()">Imposta</button>
 
 </div>
 
-<h2 style="margin-top:20px">
-Categoria
-</h2>
+<h2 style="margin-top:20px">Categoria</h2>
 
 <div class="category-grid">
 
-<button class="selected"
-onclick="selectCityCategory('Tutti',this)">
-📍 Tutti
-</button>
-
-<button onclick="selectCityCategory('Tabaccherie',this)">
-🚬 Tabaccherie
-</button>
-
-<button onclick="selectCityCategory('Agenzie scommesse',this)">
-🎯 Agenzie
-</button>
-
-<button onclick="selectCityCategory('Corner scommesse',this)">
-🏪 Corner
-</button>
-
-<button onclick="selectCityCategory('SNAI',this)">
-🔵 SNAI
-</button>
-
-<button onclick="selectCityCategory('Sisal Matchpoint',this)">
-🟢 Sisal
-</button>
-
-<button onclick="selectCityCategory('Goldbet',this)">
-🟡 Goldbet
-</button>
-
-<button onclick="selectCityCategory('Eurobet',this)">
-🔴 Eurobet
-</button>
-
-<button onclick="selectCityCategory('Betflag',this)">
-🟠 Betflag
-</button>
-
-<button onclick="selectCityCategory('Betaland',this)">
-🔵 Betaland
-</button>
-
-<button onclick="selectCityCategory('Sale giochi VLT',this)">
-🎰 Sale giochi
-</button>
+<button class="selected" onclick="selectCityCategory('Tutti',this)">📍 Tutti</button>
+<button onclick="selectCityCategory('Tabaccherie',this)">🚬 Tabaccherie</button>
+<button onclick="selectCityCategory('Agenzie scommesse',this)">🎯 Agenzie</button>
+<button onclick="selectCityCategory('Corner scommesse',this)">🏪 Corner</button>
+<button onclick="selectCityCategory('SNAI',this)">🔵 SNAI</button>
+<button onclick="selectCityCategory('Sisal Matchpoint',this)">🟢 Sisal</button>
+<button onclick="selectCityCategory('Goldbet',this)">🟡 Goldbet</button>
+<button onclick="selectCityCategory('Eurobet',this)">🔴 Eurobet</button>
+<button onclick="selectCityCategory('Betflag',this)">🟠 Betflag</button>
+<button onclick="selectCityCategory('Betaland',this)">🔵 Betaland</button>
+<button onclick="selectCityCategory('Sale giochi VLT',this)">🎰 Sale giochi</button>
 
 </div>
 
@@ -770,48 +549,29 @@ onclick="selectCityCategory('Tutti',this)">
 <h3>🗺️ Ricerca nella città</h3>
 
 <p style="color:#fff;font-size:15px">
-
-Città:
-<strong id="mapCity">Trapani</strong>
-
-<br><br>
-
-Categoria:
-<strong id="cityCategoryLabel">Tutti</strong>
-
+Città: <strong id="mapCity">Trapani</strong><br><br>
+Categoria: <strong id="cityCategoryLabel">Tutti</strong>
 </p>
 
-<button onclick="searchCityMaps()">
-📍 Apri Google Maps
-</button>
+<button onclick="searchCityMaps()">📍 Apri Google Maps</button>
 
 </div>
 
 </div>
-
 
 <div class="card">
 
 <h2>➕ Salva un punto</h2>
 
-<p style="font-size:15px">
-Inserisci qui i punti che vuoi realmente gestire.
-</p>
-
 <label>Nome attività</label>
-
-<input id="newPointName"
-placeholder="Es. SNAI Marsala">
+<input id="newPointName" placeholder="Es. SNAI Marsala">
 
 <label>Città del punto</label>
-
-<input id="newPointCity"
-placeholder="Marsala">
+<input id="newPointCity" placeholder="Marsala">
 
 <label>Categoria</label>
 
 <select id="newPointCategory">
-
 <option>Tabaccherie</option>
 <option>Agenzie scommesse</option>
 <option>Corner scommesse</option>
@@ -823,83 +583,54 @@ placeholder="Marsala">
 <option>Betaland</option>
 <option>Sale giochi VLT</option>
 <option>Altro</option>
-
 </select>
 
 <label>Indirizzo</label>
-
-<input id="newPointAddress"
-placeholder="Via Roma 10">
+<input id="newPointAddress" placeholder="Via Roma 10">
 
 <label>Telefono</label>
-
-<input id="newPointPhone"
-type="tel"
-placeholder="3331234567">
+<input id="newPointPhone" type="tel" placeholder="3331234567">
 
 <label>Potenziale</label>
 
 <select id="newPointPriority">
-
 <option value="1">Normale</option>
 <option value="2">🔥 Interessante</option>
 <option value="3">🚀 Molto interessante</option>
-
 </select>
 
 <label>Note</label>
+<textarea id="newPointNotes" placeholder="Informazioni sul punto"></textarea>
 
-<textarea id="newPointNotes"
-placeholder="Informazioni sul punto"></textarea>
-
-<button class="primary full"
-onclick="addPoint()">
-
+<button class="primary full" onclick="addPoint()">
 ➕ Salva punto
-
 </button>
 
 </div>
 
-
-<h2>
-📋 Punti di <span id="pointsCityTitle">Trapani</span>
-</h2>
+<h2>📋 Punti di <span id="pointsCityTitle">Trapani</span></h2>
 
 <div class="filterbar">
 
-<button class="selected"
-onclick="setPointFilter('all',this)">
-Tutti
-</button>
-
-<button onclick="setPointFilter('selected',this)">
-🎯 Selezionati
-</button>
-
-<button onclick="setPointFilter('visit',this)">
-🚗 Da visitare
-</button>
+<button class="selected" onclick="setPointFilter('all',this)">Tutti</button>
+<button onclick="setPointFilter('selected',this)">🎯 Selezionati</button>
+<button onclick="setPointFilter('visit',this)">🚗 Da visitare</button>
+<button onclick="setPointFilter('visited',this)">✅ Visitati</button>
 
 </div>
 
 <div id="cityPoints"></div>
-
 
 <div class="card">
 
 <h2>🧭 Percorso selezionati</h2>
 
 <p style="font-size:15px">
-Verranno utilizzati solamente i punti
-selezionati appartenenti alla città corrente.
+Solo i punti selezionati appartenenti alla città corrente.
 </p>
 
-<button class="primary full"
-onclick="openSelectedRoute()">
-
+<button class="primary full" onclick="openSelectedRoute()">
 🧭 Apri percorso su Maps
-
 </button>
 
 </div>
@@ -907,50 +638,33 @@ onclick="openSelectedRoute()">
 </section>
 
 
-<!-- TOP 5 -->
-
 <section id="targets">
 
 <h1>TOP 5</h1>
 
-<p>
-🎯 Opportunità della città selezionata.
-</p>
+<p>🎯 Opportunità della città selezionata.</p>
 
 <div class="card">
 
-<div class="location-title">
-CITTÀ
-</div>
-
-<div class="location-name"
-id="targetCity">
-Trapani
-</div>
+<div class="location-title">CITTÀ</div>
+<div class="location-name" id="targetCity">Trapani</div>
 
 </div>
 
 <div id="topTargets"></div>
 
 <div class="notice">
-
-La TOP 5 viene calcolata esclusivamente
-sui punti salvati con la stessa città selezionata.
-
+La TOP 5 viene calcolata esclusivamente sui punti salvati nella città selezionata.
 </div>
 
 </section>
 
 
-<!-- GIORNATA -->
-
 <section id="giornata">
 
 <h1>La mia giornata</h1>
 
-<p>
-📅 Clienti, chiamate, visite e appuntamenti.
-</p>
+<p>📅 Clienti, chiamate, visite e appuntamenti.</p>
 
 <div class="card">
 
@@ -958,56 +672,34 @@ sui punti salvati con la stessa città selezionata.
 
 <div class="quick-grid">
 
-<button class="secondary"
-onclick="setActivityType('Chiamata')">
-📞 Chiamata
-</button>
-
-<button class="secondary"
-onclick="setActivityType('Visita')">
-🏪 Visita
-</button>
-
-<button class="secondary"
-onclick="setActivityType('Richiamo')">
-🔄 Richiamo
-</button>
+<button class="secondary" onclick="setActivityType('Chiamata')">📞 Chiamata</button>
+<button class="secondary" onclick="setActivityType('Visita')">🏪 Visita</button>
+<button class="secondary" onclick="setActivityType('Richiamo')">🔄 Richiamo</button>
 
 </div>
 
 <label>Cliente / Punto</label>
-
-<input id="clientName"
-placeholder="Nome cliente">
+<input id="clientName" placeholder="Nome cliente">
 
 <label>Città</label>
-
-<input id="clientCity"
-placeholder="Trapani">
+<input id="clientCity" placeholder="Trapani">
 
 <label>Telefono</label>
-
-<input id="clientPhone"
-type="tel"
-placeholder="3331234567">
+<input id="clientPhone" type="tel" placeholder="3331234567">
 
 <label>Tipo attività</label>
 
 <select id="activityType">
-
 <option>Chiamata</option>
 <option>Visita</option>
 <option>Richiamo</option>
 <option>Appuntamento</option>
-
 </select>
 
 <label>Data</label>
-
 <input id="activityDate" type="date">
 
 <label>Ora</label>
-
 <input id="activityTime" type="time">
 
 <label>Priorità</label>
@@ -1019,15 +711,10 @@ placeholder="3331234567">
 </select>
 
 <label>Note</label>
+<textarea id="activityNotes" placeholder="Cosa devo ricordare?"></textarea>
 
-<textarea id="activityNotes"
-placeholder="Cosa devo ricordare?"></textarea>
-
-<button class="primary full"
-onclick="saveActivity()">
-
+<button class="primary full" onclick="saveActivity()">
 💾 Salva attività
-
 </button>
 
 </div>
@@ -1039,8 +726,6 @@ onclick="saveActivity()">
 </section>
 
 
-<!-- PROFILO -->
-
 <section id="profilo">
 
 <h1>Profilo</h1>
@@ -1051,38 +736,32 @@ onclick="saveActivity()">
 
 <div class="report-row">
 <span>🏙️ Città</span>
-<span class="report-value" id="profileCity">
-Trapani
-</span>
+<span class="report-value" id="profileCity">Trapani</span>
 </div>
 
 <div class="report-row">
 <span>📍 Punti salvati</span>
-<span class="report-value" id="profilePoints">
-0
-</span>
+<span class="report-value" id="profilePoints">0</span>
+</div>
+
+<div class="report-row">
+<span>🎯 Punti visitati</span>
+<span class="report-value" id="profileVisited">0</span>
 </div>
 
 <div class="report-row">
 <span>📅 Attività</span>
-<span class="report-value" id="profileActivities">
-0
-</span>
+<span class="report-value" id="profileActivities">0</span>
 </div>
 
 </div>
 
 <div class="notice">
-
-I dati vengono salvati localmente nel browser
-del telefono.
-
+Obiettivo annuale: <strong>365 punti</strong>.
 </div>
 
 </section>
 
-
-<!-- REPORT -->
 
 <section id="report">
 
@@ -1116,16 +795,32 @@ del telefono.
 
 <div class="card">
 
-<h2>🎯 Opportunità</h2>
+<h2>🎯 Obiettivo annuale</h2>
+
+<div class="report-row">
+<span>Punti visitati</span>
+<span class="report-value" id="reportVisited">0</span>
+</div>
+
+<div class="report-row">
+<span>Punti rimanenti</span>
+<span class="report-value" id="reportRemaining">365</span>
+</div>
+
+<div class="report-row">
+<span>Percentuale</span>
+<span class="report-value" id="reportPercentage">0%</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📍 Punti commerciali</h2>
 
 <div class="report-row">
 <span>Punti salvati</span>
 <span class="report-value" id="reportPoints">0</span>
-</div>
-
-<div class="report-row">
-<span>TOP 5</span>
-<span class="report-value">5</span>
 </div>
 
 </div>
@@ -1137,35 +832,24 @@ del telefono.
 
 <nav>
 
-<button id="nav-home"
-class="active"
-onclick="showSection('home')">
-<span class="nav-icon">🏠</span>
-Home
+<button id="nav-home" class="active" onclick="showSection('home')">
+<span class="nav-icon">🏠</span>Home
 </button>
 
-<button id="nav-radar"
-onclick="showSection('radar')">
-<span class="nav-icon">📡</span>
-Radar
+<button id="nav-radar" onclick="showSection('radar')">
+<span class="nav-icon">📡</span>Radar
 </button>
 
-<button id="nav-percorso"
-onclick="showSection('percorso')">
-<span class="nav-icon">🧭</span>
-Percorso
+<button id="nav-percorso" onclick="showSection('percorso')">
+<span class="nav-icon">🧭</span>Percorso
 </button>
 
-<button id="nav-profilo"
-onclick="showSection('profilo')">
-<span class="nav-icon">♙</span>
-Profilo
+<button id="nav-profilo" onclick="showSection('profilo')">
+<span class="nav-icon">♙</span>Profilo
 </button>
 
-<button id="nav-report"
-onclick="showSection('report')">
-<span class="nav-icon">📊</span>
-Report
+<button id="nav-report" onclick="showSection('report')">
+<span class="nav-icon">📊</span>Report
 </button>
 
 </nav>
@@ -1174,10 +858,6 @@ Report
 
 
 <script>
-
-/* =========================
-   DATI
-========================= */
 
 let activities =
 JSON.parse(localStorage.getItem("networkOneActivities") || "[]");
@@ -1192,13 +872,10 @@ let cityCategory = "Tutti";
 let radarCategory = "Tutti";
 let distanceKm = 1;
 let pointFilter = "all";
-
 let myLocation = null;
 
 
-/* =========================
-   NAVIGAZIONE
-========================= */
+/* NAVIGAZIONE */
 
 function showSection(id){
 
@@ -1216,10 +893,7 @@ const nav = document.getElementById("nav-" + id);
 
 if(nav) nav.classList.add("active");
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo({top:0,behavior:"smooth"});
 
 if(id === "giornata") renderActivities();
 if(id === "percorso") renderCityPoints();
@@ -1231,24 +905,16 @@ updateDashboard();
 }
 
 
-/* =========================
-   CITTÀ
-========================= */
+/* CITTÀ */
 
 function selectCity(){
 
-const input =
-document.getElementById("cityInput");
-
 const city =
-input.value.trim();
+document.getElementById("cityInput").value.trim();
 
 if(!city){
-
 showToast("Inserisci una città.");
-
 return;
-
 }
 
 selectedCity = normalizeCity(city);
@@ -1262,68 +928,46 @@ updateCityLabels();
 renderCityPoints();
 renderTargets();
 
-showToast(
-"Città impostata: " + selectedCity
-);
+showToast("Città impostata: " + selectedCity);
 
 }
 
-
 function normalizeCity(city){
 
-return city
-.trim()
-.toLowerCase()
+return city.trim().toLowerCase()
 .split(" ")
 .map(w => w.charAt(0).toUpperCase() + w.slice(1))
 .join(" ");
 
 }
 
-
 function updateCityLabels(){
 
-document.getElementById("selectedCity")
-.textContent = selectedCity;
-
-document.getElementById("targetCity")
-.textContent = selectedCity;
-
-document.getElementById("homeCity")
-.textContent = selectedCity;
-
-document.getElementById("profileCity")
-.textContent = selectedCity;
-
-document.getElementById("mapCity")
-.textContent = selectedCity;
-
-document.getElementById("pointsCityTitle")
-.textContent = selectedCity;
+document.getElementById("selectedCity").textContent = selectedCity;
+document.getElementById("targetCity").textContent = selectedCity;
+document.getElementById("homeCity").textContent = selectedCity;
+document.getElementById("profileCity").textContent = selectedCity;
+document.getElementById("mapCity").textContent = selectedCity;
+document.getElementById("pointsCityTitle").textContent = selectedCity;
 
 }
-
 
 function sameCity(a,b){
 
 return String(a || "")
-.trim()
-.toLowerCase()
+.trim().toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"")
 ===
 String(b || "")
-.trim()
-.toLowerCase()
+.trim().toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"");
 
 }
 
 
-/* =========================
-   CATEGORIE CITTÀ
-========================= */
+/* CATEGORIE */
 
 function selectCityCategory(category,button){
 
@@ -1331,35 +975,39 @@ cityCategory = category;
 
 document.querySelectorAll(
 "#percorso .category-grid button"
-).forEach(b =>
-b.classList.remove("selected")
-);
+).forEach(b => b.classList.remove("selected"));
 
-if(button)
-button.classList.add("selected");
+if(button) button.classList.add("selected");
 
-document.getElementById(
-"cityCategoryLabel"
-).textContent = category;
+document.getElementById("cityCategoryLabel").textContent = category;
 
 renderCityPoints();
 
 }
 
+function setRadarCategory(category,button){
 
-/* =========================
-   GOOGLE MAPS
-========================= */
+radarCategory = category;
+
+document.querySelectorAll(
+"#radar .category-grid button"
+).forEach(b => b.classList.remove("selected"));
+
+button.classList.add("selected");
+
+renderNearbyPoints();
+
+}
+
+
+/* GOOGLE MAPS */
 
 function searchCityMaps(){
 
 let query = cityCategory;
 
 if(query === "Tutti"){
-
-query =
-"tabaccherie agenzie scommesse corner scommesse SNAI Sisal Goldbet Eurobet";
-
+query = "tabaccherie agenzie scommesse corner scommesse SNAI Sisal Goldbet Eurobet";
 }
 
 const url =
@@ -1370,28 +1018,18 @@ window.location.href = url;
 
 }
 
-
 function searchRadarMaps(){
 
 let query = radarCategory;
 
 if(query === "Tutti"){
-
-query =
-"tabaccherie agenzie scommesse corner scommesse SNAI Sisal Goldbet Eurobet";
-
+query = "tabaccherie agenzie scommesse corner scommesse SNAI Sisal Goldbet Eurobet";
 }
 
 let suffix = "";
 
 if(myLocation){
-
-suffix =
-" vicino a " +
-myLocation.lat +
-"," +
-myLocation.lng;
-
+suffix = " vicino a " + myLocation.lat + "," + myLocation.lng;
 }
 
 const url =
@@ -1401,7 +1039,6 @@ encodeURIComponent(query + suffix);
 window.location.href = url;
 
 }
-
 
 function openMaps(query){
 
@@ -1414,25 +1051,16 @@ window.location.href = url;
 }
 
 
-/* =========================
-   GPS RADAR
-========================= */
+/* GPS */
 
 function getMyLocation(){
 
 if(!navigator.geolocation){
-
-showToast(
-"Il browser non supporta il GPS."
-);
-
+showToast("Il browser non supporta il GPS.");
 return;
-
 }
 
-document.getElementById(
-"gpsStatus"
-).textContent =
+document.getElementById("gpsStatus").textContent =
 "Ricerca posizione...";
 
 navigator.geolocation.getCurrentPosition(
@@ -1440,47 +1068,35 @@ navigator.geolocation.getCurrentPosition(
 function(position){
 
 myLocation = {
-
 lat:position.coords.latitude,
 lng:position.coords.longitude
-
 };
 
-document.getElementById(
-"gpsDot"
-).classList.add("active");
+document.getElementById("gpsDot")
+.classList.add("active");
 
-document.getElementById(
-"gpsStatus"
-).textContent =
-"Posizione rilevata";
+document.getElementById("gpsStatus")
+.textContent = "Posizione rilevata";
 
-document.getElementById(
-"gpsCoords"
-).textContent =
+document.getElementById("gpsCoords")
+.textContent =
 myLocation.lat.toFixed(5) +
 " · " +
 myLocation.lng.toFixed(5);
 
 renderNearbyPoints();
 
-showToast(
-"GPS attivo."
-);
+showToast("GPS attivo.");
 
 },
 
-function(error){
-
-document.getElementById(
-"gpsStatus"
-).textContent =
-"Impossibile rilevare la posizione";
+function(){
+document.getElementById("gpsStatus")
+.textContent = "Impossibile rilevare la posizione";
 
 showToast(
 "Controlla i permessi di posizione del telefono."
 );
-
 },
 
 {
@@ -1493,16 +1109,13 @@ maximumAge:60000
 
 }
 
-
 function setDistance(value,button){
 
 distanceKm = value;
 
 document.querySelectorAll(
 ".distance-grid button"
-).forEach(b =>
-b.classList.remove("selected")
-);
+).forEach(b => b.classList.remove("selected"));
 
 button.classList.add("selected");
 
@@ -1511,74 +1124,35 @@ renderNearbyPoints();
 }
 
 
-function setRadarCategory(category,button){
+/* DISTANZA */
 
-radarCategory = category;
-
-document.querySelectorAll(
-"#radar .category-grid button"
-).forEach(b =>
-b.classList.remove("selected")
-);
-
-button.classList.add("selected");
-
-renderNearbyPoints();
-
-}
-
-
-/* =========================
-   DISTANZA GPS
-========================= */
-
-function calculateDistance(
-lat1,
-lon1,
-lat2,
-lon2
-){
+function calculateDistance(lat1,lon1,lat2,lon2){
 
 const R = 6371;
 
-const dLat =
-(lat2-lat1) *
-Math.PI/180;
-
-const dLon =
-(lon2-lon1) *
-Math.PI/180;
+const dLat = (lat2-lat1)*Math.PI/180;
+const dLon = (lon2-lon1)*Math.PI/180;
 
 const a =
-Math.sin(dLat/2) *
-Math.sin(dLat/2) +
+Math.sin(dLat/2)*Math.sin(dLat/2) +
 Math.cos(lat1*Math.PI/180) *
 Math.cos(lat2*Math.PI/180) *
-Math.sin(dLon/2) *
-Math.sin(dLon/2);
+Math.sin(dLon/2)*Math.sin(dLon/2);
 
 const c =
-2 *
-Math.atan2(
-Math.sqrt(a),
-Math.sqrt(1-a)
-);
+2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 
 return R*c;
 
 }
 
 
-/* =========================
-   RADAR PUNTI SALVATI
-========================= */
+/* RADAR */
 
 function renderNearbyPoints(){
 
 const container =
-document.getElementById(
-"nearbyPoints"
-);
+document.getElementById("nearbyPoints");
 
 if(!container) return;
 
@@ -1586,32 +1160,19 @@ if(!myLocation){
 
 container.innerHTML = `
 <div class="empty">
-📍 Attiva il GPS per vedere
-i punti salvati con coordinate.
+📍 Attiva il GPS per vedere i punti salvati vicino a te.
 <br><br>
-Puoi comunque utilizzare
-il pulsante Google Maps sopra.
+Puoi comunque utilizzare Google Maps.
 </div>
 `;
 
 return;
-
 }
 
-
-/*
-I punti salvati manualmente possono
-avere coordinate GPS.
-*/
-
 let nearby =
-points
-.filter(p => {
+points.filter(p => {
 
-if(
-!p.lat ||
-!p.lng
-) return false;
+if(!p.lat || !p.lng) return false;
 
 const d =
 calculateDistance(
@@ -1621,42 +1182,33 @@ Number(p.lat),
 Number(p.lng)
 );
 
-if(d > distanceKm)
-return false;
+if(d > distanceKm) return false;
 
 if(
 radarCategory !== "Tutti" &&
 p.category !== radarCategory
-)
-return false;
+) return false;
 
 p._distance = d;
 
 return true;
 
 })
-.sort(
-(a,b) =>
-a._distance - b._distance
-);
+.sort((a,b) => a._distance-b._distance);
 
 
 if(!nearby.length){
 
 container.innerHTML = `
 <div class="empty">
-📍 Nessun punto salvato
-entro ${distanceKm} km.
+📍 Nessun punto salvato entro ${distanceKm} km.
 <br><br>
-Per cercare nuovi punti,
-utilizza Google Maps.
+Utilizza Google Maps per trovare nuovi punti.
 </div>
 `;
 
 return;
-
 }
-
 
 container.innerHTML =
 nearby.map(p => `
@@ -1672,24 +1224,18 @@ ${escapeHTML(p.name)}
 </div>
 
 <div class="radar-info">
-
 ${categoryIcon(p.category)}
 ${escapeHTML(p.category)}
-
 <br>
-
 📍 ${escapeHTML(p.city)}
-
 </div>
 
 </div>
 
 <div class="radar-distance">
-
 ${p._distance < 1
 ? Math.round(p._distance*1000)+" m"
 : p._distance.toFixed(1)+" km"}
-
 </div>
 
 </div>
@@ -1715,94 +1261,57 @@ onclick="addPointActivity(${p.id})">
 }
 
 
-/* =========================
-   AGGIUNGI PUNTO
-========================= */
+/* PUNTI */
 
 function addPoint(){
 
 const name =
-document.getElementById(
-"newPointName"
-).value.trim();
+document.getElementById("newPointName").value.trim();
 
 const city =
-document.getElementById(
-"newPointCity"
-).value.trim();
+document.getElementById("newPointCity").value.trim();
 
 if(!name || !city){
 
-showToast(
-"Inserisci nome e città."
-);
-
+showToast("Inserisci nome e città.");
 return;
 
 }
 
-
 const point = {
 
 id:Date.now(),
-
 name:name,
-
 city:normalizeCity(city),
 
 category:
-document.getElementById(
-"newPointCategory"
-).value,
+document.getElementById("newPointCategory").value,
 
 address:
-document.getElementById(
-"newPointAddress"
-).value.trim(),
+document.getElementById("newPointAddress").value.trim(),
 
 phone:
-document.getElementById(
-"newPointPhone"
-).value.trim(),
+document.getElementById("newPointPhone").value.trim(),
 
 priority:
-Number(
-document.getElementById(
-"newPointPriority"
-).value
-),
+Number(document.getElementById("newPointPriority").value),
 
 notes:
-document.getElementById(
-"newPointNotes"
-).value.trim(),
+document.getElementById("newPointNotes").value.trim(),
 
 selected:false,
-
 visited:false,
-
 lat:null,
-
 lng:null
 
 };
 
-
-/*
-Se il GPS è attivo, possiamo associare
-la posizione corrente al punto.
-*/
-
 if(myLocation){
 
-point.lat =
-myLocation.lat;
-
-point.lng =
-myLocation.lng;
+point.lat = myLocation.lat;
+point.lng = myLocation.lng;
 
 }
-
 
 points.push(point);
 
@@ -1811,74 +1320,34 @@ localStorage.setItem(
 JSON.stringify(points)
 );
 
-
 clearPointForm();
-
 renderCityPoints();
 renderTargets();
 renderNearbyPoints();
 updateDashboard();
 
-showToast(
-"Punto salvato in " + point.city
-);
+showToast("Punto salvato in " + point.city);
 
 }
-
 
 function clearPointForm(){
 
-document.getElementById(
-"newPointName"
-).value = "";
-
-document.getElementById(
-"newPointCity"
-).value =
-selectedCity;
-
-document.getElementById(
-"newPointAddress"
-).value = "";
-
-document.getElementById(
-"newPointPhone"
-).value = "";
-
-document.getElementById(
-"newPointPriority"
-).value = "1";
-
-document.getElementById(
-"newPointNotes"
-).value = "";
+document.getElementById("newPointName").value = "";
+document.getElementById("newPointCity").value = selectedCity;
+document.getElementById("newPointAddress").value = "";
+document.getElementById("newPointPhone").value = "";
+document.getElementById("newPointPriority").value = "1";
+document.getElementById("newPointNotes").value = "";
 
 }
-
-
-/* =========================
-   FILTRO CITTÀ
-========================= */
 
 function getCityPoints(){
 
 let list =
-points.filter(
-p => sameCity(
-p.city,
-selectedCity
-)
-);
+points.filter(p => sameCity(p.city,selectedCity));
 
-if(
-cityCategory !== "Tutti"
-){
-
-list =
-list.filter(
-p => p.category === cityCategory
-);
-
+if(cityCategory !== "Tutti"){
+list = list.filter(p => p.category === cityCategory);
 }
 
 return list;
@@ -1886,122 +1355,73 @@ return list;
 }
 
 
-/* =========================
-   SCORE
-========================= */
+/* PUNTEGGIO */
 
 function pointScore(point){
 
 let score = 50;
 
-score +=
-Number(point.priority || 1) * 10;
+score += Number(point.priority || 1) * 10;
 
-if(point.phone)
-score += 10;
+if(point.phone) score += 10;
 
-if(
-point.category === "Agenzie scommesse"
-)
-score += 8;
+if(point.category === "Agenzie scommesse") score += 8;
 
-if(
-point.category === "Corner scommesse"
-)
-score += 6;
+if(point.category === "Corner scommesse") score += 6;
 
 if(
 ["SNAI","Sisal Matchpoint","Goldbet"]
 .includes(point.category)
-)
-score += 8;
+) score += 8;
 
-if(point.selected)
-score += 8;
+if(point.selected) score += 8;
 
-if(point.visited)
-score -= 20;
+if(point.visited) score -= 20;
 
-return Math.max(
-0,
-Math.min(100,score)
-);
+return Math.max(0,Math.min(100,score));
 
 }
 
 
-/* =========================
-   LISTA CITTÀ
-========================= */
+/* LISTA */
 
 function renderCityPoints(){
 
 const container =
-document.getElementById(
-"cityPoints"
-);
+document.getElementById("cityPoints");
 
 if(!container) return;
 
-let list =
-getCityPoints();
+let list = getCityPoints();
 
+if(pointFilter === "selected")
+list = list.filter(p => p.selected);
 
-if(pointFilter === "selected"){
+if(pointFilter === "visit")
+list = list.filter(p => !p.visited);
 
-list =
-list.filter(
-p => p.selected
-);
+if(pointFilter === "visited")
+list = list.filter(p => p.visited);
 
-}
-
-if(pointFilter === "visit"){
-
-list =
-list.filter(
-p => !p.visited
-);
-
-}
-
-
-list.sort(
-(a,b) =>
-pointScore(b)-pointScore(a)
-);
-
+list.sort((a,b) => pointScore(b)-pointScore(a));
 
 if(!list.length){
 
 container.innerHTML = `
 <div class="empty">
-
-📍 Nessun punto salvato
-a <strong>${escapeHTML(selectedCity)}</strong>
-${cityCategory !== "Tutti"
-? "<br>Categoria: " +
-escapeHTML(cityCategory)
-: ""}
-
+📍 Nessun punto salvato a <strong>${escapeHTML(selectedCity)}</strong>.
 <br><br>
-
-Apri Google Maps, trova i punti
-e salvali nell'app.
-
+Apri Google Maps, trova i punti e salvali nell'app.
 </div>
 `;
 
 return;
-
 }
-
 
 container.innerHTML =
 list.map(p => `
 
-<div class="point
-${p.selected ? "target" : ""}">
+<div class="point ${p.selected ? "target" : ""}">
 
 ${p.selected
 ? '<span class="target-label">🎯 SELEZIONATO</span>'
@@ -2042,6 +1462,10 @@ ${p.phone
 ? "📞 " + escapeHTML(p.phone) + "<br>"
 : ""}
 
+${p.visited
+? "✅ PUNTO VISITATO<br>"
+: ""}
+
 ${p.notes
 ? "📝 " + escapeHTML(p.notes)
 : ""}
@@ -2055,34 +1479,21 @@ onclick="openPointMaps(${p.id})">
 📍 Maps
 </button>
 
-<button class="${
-p.selected ? "success" : "secondary"
-}"
+<button class="${p.selected ? "success" : "secondary"}"
 onclick="toggleSelected(${p.id})">
-
-${
-p.selected
-? "✅ Selezionato"
-: "🎯 Seleziona"
-}
-
+${p.selected ? "✅ Selezionato" : "🎯 Seleziona"}
 </button>
 
 ${
 p.phone
-? `
-<button class="success"
-onclick="callPoint(${p.id})">
-📞 Chiama
-</button>
-`
-: `
-<button class="secondary"
-onclick="addPointActivity(${p.id})">
-📅 Agenda
-</button>
-`
+? `<button class="success" onclick="callPoint(${p.id})">📞 Chiama</button>`
+: `<button class="secondary" onclick="addPointActivity(${p.id})">📅 Agenda</button>`
 }
+
+<button class="${p.visited ? "secondary" : "warning"}"
+onclick="toggleVisited(${p.id})">
+${p.visited ? "↩️ Da visitare" : "✅ Visitato"}
+</button>
 
 <button class="danger"
 onclick="deletePoint(${p.id})">
@@ -2104,9 +1515,7 @@ pointFilter = filter;
 
 document.querySelectorAll(
 "#percorso .filterbar button"
-).forEach(b =>
-b.classList.remove("selected")
-);
+).forEach(b => b.classList.remove("selected"));
 
 button.classList.add("selected");
 
@@ -2115,21 +1524,13 @@ renderCityPoints();
 }
 
 
-/* =========================
-   SELEZIONA
-========================= */
-
 function toggleSelected(id){
 
-const p =
-points.find(
-x => x.id === id
-);
+const p = points.find(x => x.id === id);
 
 if(!p) return;
 
-p.selected =
-!p.selected;
+p.selected = !p.selected;
 
 localStorage.setItem(
 "networkOnePoints",
@@ -2149,21 +1550,42 @@ p.selected
 }
 
 
-/* =========================
-   ELIMINA
-========================= */
+/* VISITATO */
+
+function toggleVisited(id){
+
+const p = points.find(x => x.id === id);
+
+if(!p) return;
+
+p.visited = !p.visited;
+
+localStorage.setItem(
+"networkOnePoints",
+JSON.stringify(points)
+);
+
+renderCityPoints();
+renderTargets();
+updateDashboard();
+
+showToast(
+p.visited
+? "Punto segnato come visitato."
+: "Punto rimesso tra quelli da visitare."
+);
+
+}
+
+
+/* ELIMINA */
 
 function deletePoint(id){
 
-if(!confirm(
-"Vuoi eliminare questo punto?"
-))
+if(!confirm("Vuoi eliminare questo punto?"))
 return;
 
-points =
-points.filter(
-p => p.id !== id
-);
+points = points.filter(p => p.id !== id);
 
 localStorage.setItem(
 "networkOnePoints",
@@ -2178,55 +1600,34 @@ updateDashboard();
 }
 
 
-/* =========================
-   TOP 5
-========================= */
+/* TOP 5 */
 
 function renderTargets(){
 
 const container =
-document.getElementById(
-"topTargets"
-);
+document.getElementById("topTargets");
 
 if(!container) return;
 
-let list =
-getCityPoints();
+let list = getCityPoints();
 
-list.sort(
-(a,b) =>
-pointScore(b)-pointScore(a)
-);
+list.sort((a,b) => pointScore(b)-pointScore(a));
 
-const top =
-list.slice(0,5);
-
+const top = list.slice(0,5);
 
 if(!top.length){
 
 container.innerHTML = `
 <div class="empty">
-
-🎯 Nessun punto disponibile
-per ${escapeHTML(selectedCity)}.
-
-<br><br>
-
-Vai in Percorso e aggiungi
-i punti che vuoi visitare.
-
+🎯 Nessun punto disponibile per ${escapeHTML(selectedCity)}.
 </div>
 `;
 
 return;
-
 }
 
-
 container.innerHTML =
-top.map(
-(p,index) => `
+top.map((p,index) => `
 
 <div class="point target">
 
@@ -2275,26 +1676,19 @@ onclick="addPointActivity(${p.id})">
 
 </div>
 
-`
-).join("");
+`).join("");
 
 }
 
 
-/* =========================
-   PERCORSO
-========================= */
+/* PERCORSO */
 
 function openSelectedRoute(){
 
 const selected =
-points.filter(
-p =>
+points.filter(p =>
 p.selected &&
-sameCity(
-p.city,
-selectedCity
-)
+sameCity(p.city,selectedCity)
 );
 
 if(!selected.length){
@@ -2304,190 +1698,103 @@ showToast(
 );
 
 return;
-
 }
 
-
 const destinations =
-selected.map(
-p =>
-p.name +
-", " +
-p.city +
-(p.address
-? ", " + p.address
-: "")
+selected.map(p =>
+p.name + ", " + p.city +
+(p.address ? ", " + p.address : "")
 );
 
-
 const destination =
-destinations[
-destinations.length-1
-];
+destinations[destinations.length-1];
 
 const waypoints =
-destinations
-.slice(0,-1)
-.join("|");
-
+destinations.slice(0,-1).join("|");
 
 let url =
 "https://www.google.com/maps/dir/?api=1" +
 "&destination=" +
 encodeURIComponent(destination);
 
-
 if(waypoints){
+url += "&waypoints=" + encodeURIComponent(waypoints);
+}
 
-url +=
-"&waypoints=" +
-encodeURIComponent(waypoints);
+window.location.href = url;
 
 }
 
 
-window.location.href =
-url;
-
-}
-
-
-/* =========================
-   MAPS PUNTO
-========================= */
+/* MAPS */
 
 function openPointMaps(id){
 
-const p =
-points.find(
-x => x.id === id
-);
+const p = points.find(x => x.id === id);
 
 if(!p) return;
 
-let query =
-p.name +
-", " +
-p.city;
+let query = p.name + ", " + p.city;
 
-if(p.address)
-query +=
-", " + p.address;
+if(p.address) query += ", " + p.address;
 
 openMaps(query);
 
 }
 
 
-/* =========================
-   TELEFONO
-========================= */
+/* TELEFONO */
 
 function callPoint(id){
 
-const p =
-points.find(
-x => x.id === id
-);
+const p = points.find(x => x.id === id);
 
 if(!p || !p.phone){
-
-showToast(
-"Numero non disponibile."
-);
-
+showToast("Numero non disponibile.");
 return;
+}
+
+window.location.href = "tel:" + p.phone;
 
 }
 
-window.location.href =
-"tel:" + p.phone;
 
-}
-
-
-/* =========================
-   AGENDA
-========================= */
+/* AGENDA */
 
 function addPointActivity(id){
 
-const p =
-points.find(
-x => x.id === id
-);
+const p = points.find(x => x.id === id);
 
 if(!p) return;
 
 showSection("giornata");
 
-document.getElementById(
-"clientName"
-).value =
-p.name;
-
-document.getElementById(
-"clientCity"
-).value =
-p.city;
-
-document.getElementById(
-"clientPhone"
-).value =
-p.phone || "";
-
-document.getElementById(
-"activityType"
-).value =
-"Visita";
-
-document.getElementById(
-"activityDate"
-).value =
-today();
-
-document.getElementById(
-"activityNotes"
-).value =
-p.category +
-(p.notes
-? " · " + p.notes
-: "");
+document.getElementById("clientName").value = p.name;
+document.getElementById("clientCity").value = p.city;
+document.getElementById("clientPhone").value = p.phone || "";
+document.getElementById("activityType").value = "Visita";
+document.getElementById("activityDate").value = today();
+document.getElementById("activityNotes").value =
+p.category + (p.notes ? " · " + p.notes : "");
 
 }
-
 
 function setActivityType(type){
 
-document.getElementById(
-"activityType"
-).value =
-type;
-
-document.getElementById(
-"clientName"
-).focus();
+document.getElementById("activityType").value = type;
+document.getElementById("clientName").focus();
 
 }
-
 
 function saveActivity(){
 
 const name =
-document.getElementById(
-"clientName"
-).value.trim();
+document.getElementById("clientName").value.trim();
 
 if(!name){
-
-showToast(
-"Inserisci il cliente."
-);
-
+showToast("Inserisci il cliente.");
 return;
-
 }
-
 
 const activity = {
 
@@ -2496,45 +1803,29 @@ id:Date.now(),
 name:name,
 
 city:
-document.getElementById(
-"clientCity"
-).value.trim(),
+document.getElementById("clientCity").value.trim(),
 
 phone:
-document.getElementById(
-"clientPhone"
-).value.trim(),
+document.getElementById("clientPhone").value.trim(),
 
 type:
-document.getElementById(
-"activityType"
-).value,
+document.getElementById("activityType").value,
 
 date:
-document.getElementById(
-"activityDate"
-).value ||
-today(),
+document.getElementById("activityDate").value || today(),
 
 time:
-document.getElementById(
-"activityTime"
-).value,
+document.getElementById("activityTime").value,
 
 priority:
-document.getElementById(
-"priority"
-).value,
+document.getElementById("priority").value,
 
 notes:
-document.getElementById(
-"activityNotes"
-).value.trim(),
+document.getElementById("activityNotes").value.trim(),
 
 done:false
 
 };
-
 
 activities.push(activity);
 
@@ -2547,106 +1838,60 @@ clearActivityForm();
 renderActivities();
 updateDashboard();
 
-showToast(
-"Attività salvata."
-);
+showToast("Attività salvata.");
 
 }
-
 
 function clearActivityForm(){
 
-document.getElementById(
-"clientName"
-).value = "";
-
-document.getElementById(
-"clientCity"
-).value =
-selectedCity;
-
-document.getElementById(
-"clientPhone"
-).value = "";
-
-document.getElementById(
-"activityType"
-).value =
-"Chiamata";
-
-document.getElementById(
-"activityDate"
-).value =
-today();
-
-document.getElementById(
-"activityTime"
-).value = "";
-
-document.getElementById(
-"priority"
-).value =
-"Normale";
-
-document.getElementById(
-"activityNotes"
-).value = "";
+document.getElementById("clientName").value = "";
+document.getElementById("clientCity").value = selectedCity;
+document.getElementById("clientPhone").value = "";
+document.getElementById("activityType").value = "Chiamata";
+document.getElementById("activityDate").value = today();
+document.getElementById("activityTime").value = "";
+document.getElementById("priority").value = "Normale";
+document.getElementById("activityNotes").value = "";
 
 }
 
 
-/* =========================
-   ATTIVITÀ
-========================= */
+/* ATTIVITÀ */
 
 function renderActivities(){
 
 const container =
-document.getElementById(
-"todayActivities"
-);
+document.getElementById("todayActivities");
 
 if(!container) return;
 
 const list =
 activities
-.filter(
-a => a.date === today()
-)
+.filter(a => a.date === today())
 .sort(
 (a,b) =>
-(a.time || "99:99")
-.localeCompare(
+(a.time || "99:99").localeCompare(
 b.time || "99:99"
 )
 );
-
 
 if(!list.length){
 
 container.innerHTML = `
 <div class="empty">
-
 📅 Nessuna attività programmata oggi.
-
 <br><br>
-
 Inserisci il primo cliente.
-
 </div>
 `;
 
 return;
-
 }
 
-
 container.innerHTML =
-list.map(
-a => `
+list.map(a => `
 
-<div class="activity
-${a.done ? "done" : ""}">
+<div class="activity ${a.done ? "done" : ""}">
 
 <div class="activity-title">
 ${escapeHTML(a.name)}
@@ -2659,28 +1904,10 @@ ${escapeHTML(a.type)}
 
 <div class="activity-info">
 
-${a.city
-? "📍 " +
-escapeHTML(a.city) +
-"<br>"
-: ""}
-
-${a.time
-? "🕐 " +
-escapeHTML(a.time) +
-"<br>"
-: ""}
-
-${a.phone
-? "📞 " +
-escapeHTML(a.phone) +
-"<br>"
-: ""}
-
-${a.notes
-? "📝 " +
-escapeHTML(a.notes)
-: ""}
+${a.city ? "📍 "+escapeHTML(a.city)+"<br>" : ""}
+${a.time ? "🕐 "+escapeHTML(a.time)+"<br>" : ""}
+${a.phone ? "📞 "+escapeHTML(a.phone)+"<br>" : ""}
+${a.notes ? "📝 "+escapeHTML(a.notes) : ""}
 
 </div>
 
@@ -2688,37 +1915,21 @@ escapeHTML(a.notes)
 
 ${
 a.phone
-? `
-<button class="success"
-onclick="callClient('${escapeAttr(a.phone)}')">
-📞 Chiama
-</button>
-`
+? `<button class="success" onclick="callClient('${escapeAttr(a.phone)}')">📞 Chiama</button>`
 : ""
 }
 
 ${
 a.city
-? `
-<button class="primary"
-onclick="openMaps('${escapeAttr(a.name+", "+a.city)}')">
-📍 Maps
-</button>
-`
+? `<button class="primary" onclick="openMaps('${escapeAttr(a.name+", "+a.city)}')">📍 Maps</button>`
 : ""
 }
 
-<button class="success"
-onclick="toggleActivity(${a.id})">
-
-${a.done
-? "↩️ Da fare"
-: "✅ Fatto"}
-
+<button class="success" onclick="toggleActivity(${a.id})">
+${a.done ? "↩️ Da fare" : "✅ Fatto"}
 </button>
 
-<button class="danger"
-onclick="deleteActivity(${a.id})">
+<button class="danger" onclick="deleteActivity(${a.id})">
 🗑️ Elimina
 </button>
 
@@ -2726,23 +1937,17 @@ onclick="deleteActivity(${a.id})">
 
 </div>
 
-`
-).join("");
+`).join("");
 
 }
-
 
 function toggleActivity(id){
 
-const a =
-activities.find(
-x => x.id === id
-);
+const a = activities.find(x => x.id === id);
 
 if(!a) return;
 
-a.done =
-!a.done;
+a.done = !a.done;
 
 localStorage.setItem(
 "networkOneActivities",
@@ -2753,19 +1958,14 @@ renderActivities();
 updateDashboard();
 
 }
-
 
 function deleteActivity(id){
 
-if(!confirm(
-"Vuoi eliminare questa attività?"
-))
+if(!confirm("Vuoi eliminare questa attività?"))
 return;
 
 activities =
-activities.filter(
-x => x.id !== id
-);
+activities.filter(x => x.id !== id);
 
 localStorage.setItem(
 "networkOneActivities",
@@ -2778,91 +1978,94 @@ updateDashboard();
 }
 
 
-/* =========================
-   DASHBOARD
-========================= */
+/* OBIETTIVO 365 */
+
+function updateAnnualGoal(){
+
+const completed =
+points.filter(p => p.visited).length;
+
+const remaining =
+Math.max(0,365-completed);
+
+const percentage =
+Math.min(100,(completed/365)*100);
+
+document.getElementById(
+"pointsCompleted"
+).textContent = completed;
+
+document.getElementById(
+"pointsRemaining"
+).textContent = remaining;
+
+document.getElementById(
+"annualProgress"
+).style.width =
+percentage + "%";
+
+document.getElementById(
+"reportVisited"
+).textContent =
+completed;
+
+document.getElementById(
+"reportRemaining"
+).textContent =
+remaining;
+
+document.getElementById(
+"reportPercentage"
+).textContent =
+percentage.toFixed(1) + "%";
+
+document.getElementById(
+"profileVisited"
+).textContent =
+completed;
+
+}
+
+
+/* DASHBOARD */
 
 function updateDashboard(){
 
 const list =
-activities.filter(
-a => a.date === today()
-);
+activities.filter(a => a.date === today());
 
 const calls =
-list.filter(
-a => a.type === "Chiamata"
-).length;
+list.filter(a => a.type === "Chiamata").length;
 
 const visits =
-list.filter(
-a => a.type === "Visita"
-).length;
+list.filter(a => a.type === "Visita").length;
 
 const callbacks =
-list.filter(
-a => a.type === "Richiamo"
-).length;
+list.filter(a => a.type === "Richiamo").length;
 
 const appointments =
-list.filter(
-a => a.type === "Appuntamento"
-).length;
+list.filter(a => a.type === "Appuntamento").length;
 
+document.getElementById("callsCount").textContent = calls;
+document.getElementById("visitsCount").textContent = visits;
+document.getElementById("callbacksCount").textContent = callbacks;
+document.getElementById("appointmentsCount").textContent = appointments;
 
-document.getElementById(
-"callsCount"
-).textContent = calls;
+document.getElementById("reportCalls").textContent = calls;
+document.getElementById("reportVisits").textContent = visits;
+document.getElementById("reportCallbacks").textContent = callbacks;
+document.getElementById("reportAppointments").textContent = appointments;
 
-document.getElementById(
-"visitsCount"
-).textContent = visits;
+document.getElementById("reportPoints").textContent = points.length;
+document.getElementById("profilePoints").textContent = points.length;
+document.getElementById("profileActivities").textContent = activities.length;
 
-document.getElementById(
-"callbacksCount"
-).textContent = callbacks;
-
-document.getElementById(
-"appointmentsCount"
-).textContent = appointments;
-
-document.getElementById(
-"reportCalls"
-).textContent = calls;
-
-document.getElementById(
-"reportVisits"
-).textContent = visits;
-
-document.getElementById(
-"reportCallbacks"
-).textContent = callbacks;
-
-document.getElementById(
-"reportAppointments"
-).textContent = appointments;
-
-document.getElementById(
-"reportPoints"
-).textContent =
-points.length;
-
-document.getElementById(
-"profilePoints"
-).textContent =
-points.length;
-
-document.getElementById(
-"profileActivities"
-).textContent =
-activities.length;
+updateAnnualGoal();
 
 }
 
 
-/* =========================
-   UTILITÀ
-========================= */
+/* UTILITÀ */
 
 function today(){
 
@@ -2876,37 +2079,23 @@ String(d.getDate()).padStart(2,"0");
 
 }
 
-
 function callClient(phone){
-
-window.location.href =
-"tel:" + phone;
-
+window.location.href = "tel:" + phone;
 }
-
 
 function categoryIcon(category){
 
 const icons = {
 
 "Tabaccherie":"🚬",
-
 "Agenzie scommesse":"🎯",
-
 "Corner scommesse":"🏪",
-
 "SNAI":"🔵",
-
 "Sisal Matchpoint":"🟢",
-
 "Goldbet":"🟡",
-
 "Eurobet":"🔴",
-
 "Betflag":"🟠",
-
 "Betaland":"🔵",
-
 "Sale giochi VLT":"🎰"
 
 };
@@ -2914,7 +2103,6 @@ const icons = {
 return icons[category] || "📍";
 
 }
-
 
 function typeIcon(type){
 
@@ -2927,7 +2115,6 @@ return "📌";
 
 }
 
-
 function escapeHTML(text){
 
 return String(text || "")
@@ -2939,7 +2126,6 @@ return String(text || "")
 
 }
 
-
 function escapeAttr(text){
 
 return String(text || "")
@@ -2948,72 +2134,40 @@ return String(text || "")
 
 }
 
-
 function showToast(message){
 
 const toast =
 document.getElementById("toast");
 
-toast.textContent =
-message;
+toast.textContent = message;
+toast.style.display = "block";
 
-toast.style.display =
-"block";
-
-clearTimeout(
-window.toastTimer
-);
+clearTimeout(window.toastTimer);
 
 window.toastTimer =
-setTimeout(
-() => {
-toast.style.display =
-"none";
-},
-2600
-);
+setTimeout(() => {
+toast.style.display = "none";
+},2600);
 
 }
 
 
-/* =========================
-   AVVIO
-========================= */
+/* AVVIO */
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
-document.getElementById(
-"cityInput"
-).value =
-selectedCity;
-
-document.getElementById(
-"newPointCity"
-).value =
-selectedCity;
-
-document.getElementById(
-"clientCity"
-).value =
-selectedCity;
-
-document.getElementById(
-"activityDate"
-).value =
-today();
+document.getElementById("cityInput").value = selectedCity;
+document.getElementById("newPointCity").value = selectedCity;
+document.getElementById("clientCity").value = selectedCity;
+document.getElementById("activityDate").value = today();
 
 updateCityLabels();
-
 renderActivities();
-
 renderCityPoints();
-
 renderTargets();
-
 renderNearbyPoints();
-
 updateDashboard();
 
 }
